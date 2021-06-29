@@ -1,0 +1,10 @@
+{
+  "name": "course-connect",
+  "version": "1.0.0",
+  "description": "Site to help students search for classes and connect with mentors",
+  "homepage": "https://github.com/jadebuckwalter/course-connect#readme",
+  "main": "index.js",
+  "repository": "github:jadebuckwalter/course-connect",
+  "author": "Jade Buckwalter",
+  "license": "ISC"
+}
