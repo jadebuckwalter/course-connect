@@ -35,7 +35,9 @@ function formatCourseList(list) {
     return results;
 }
 
+// Display the results of the search query as buttons
 function displayResults() {
+    clearResults();
     let courses = searchCourses();
     for (let i = 0; i < courses.length; i++) {
         let button = document.createElement("button");
@@ -44,4 +46,13 @@ function displayResults() {
         button.innerHTML = courses[i];
         document.getElementById("result").append(button, br);
     }
+}
+
+// Clear the results of the previous search
+function clearResults() {
+    let result = document.getElementById("result");
+    result.parentNode.removeChild(result);
+    result = document.createElement("div");
+    result.id = "result";
+    document.body.appendChild(result);
 }
