@@ -9,8 +9,16 @@
     </head>
     <body>
         <h1>Welcome to Student Course Connection!</h1>
-        <label>Search for classes: <input type="text" id="search"></label>
+        <label>Search for courses: <input type="text" id="search"></label>
         <button onclick="displayResults();">Submit</button><br><br>
-        <div id="result"></div>
+        <div id="results-container">
+            <div id="result"></div>
+        </div><br><br>
+        <h1>My Courses</h1>
+        <div id="courses-container">
+            <div id="my-courses"></div>
+        </div><br>
+        <button>Search for students who have taken these courses</button><br><br>
+        <button id="clear-courses" onclick="clearCourses();">Clear courses</button>
     </body>
 </html>
