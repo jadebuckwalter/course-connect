@@ -2,6 +2,11 @@ let express = require("express");
 let app = express();
 let mysql = require("mysql");
 
+app.use(express.json());
+app.use("/node_modules", express.static(__dirname + "/node_modules"));
+app.use(express.static(__dirname + "/public"));
+
+// Connect to the MySQL database
 var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -10,18 +15,17 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-app.use(express.json());
-app.use("/node_modules", express.static(__dirname + "/node_modules"));
-app.use(express.static(__dirname + "/public"));
-
+// Direct to homepage
 app.get("/", function(req, res) {
     res.sendFile("home.html", {"root": __dirname + "/public"});
 });
 
+// Direct to the mentor form
 app.get("/form", function(req, res) {
     res.sendFile("form.html", {"root": __dirname + "/public"});
 });
 
+// Receive info from the mentor form and enter it into the database
 app.post("/form", function(req, res) {
     // Delete previous instances of this id in the database
     let deleteMentor = "DELETE FROM mentors WHERE id = ?";
@@ -47,6 +51,7 @@ app.post("/form", function(req, res) {
     res.end();
 });
 
+// Receive search results, query the database for them, and pass back a JSON with the results
 app.get("/search", function(req, res) {
     let sql = "SELECT * FROM courses WHERE name LIKE ?";
     connection.query(sql, ["%" + req.query.key + "%"], function(err, rows) {
