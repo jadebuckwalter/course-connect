@@ -23,6 +23,12 @@ app.get("/form", function(req, res) {
 });
 
 app.post("/form", function(req, res) {
+    // Delete previous instances of this id in the database
+    let del = "DELETE FROM mentors WHERE id = ?";
+    connection.query(del, req.body.id, function(err) {
+        if (err) throw err;
+    });
+    // Insert the latest mentor info
     let insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
     connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], function(err) {
         if (err) throw err;
