@@ -1,0 +1,43 @@
+<!--Form that mentors fill out-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Mentor Form - Student Course Connection</title>
+        <script src="js/functions.js"></script>
+        <script src="js/my-courses.js"></script>
+        <script src="js/search.js"></script>
+        <script src="js/form.js"></script>
+    </head>
+    <body>
+        <h1>Student Course Connection Mentor Form</h1>
+        <p>
+            If you are accessing this form, you have previously signed up to be 
+            a mentor for Student Course Connection. Please fill out the form below.
+        </p><br>
+
+        <label>Student ID: <input type="number" id="student-id"></label><br>
+        <label>First/Preferred name: <input type="text" id="first-name"></label><br>
+        <label>Last name: <input type="text" id="last-name"></label><br>
+        <label>CPSD email: <input type="email" id="email"></label><br>
+
+        <p>
+            Think about the courses you have taken during your time at CRLS.
+            Which ones have been the most memorable? For which courses would 
+            you be willing to share your experience with other students who 
+            are considering signing up for the course?
+        </p>
+        <p>
+            Search for courses below, and add them to your list of courses.
+            When you're done, hit submit.
+        </p>
+        <label>Search for courses: <input type="text" id="search"></label>
+        <button onclick="displayResults();">Submit</button><br><br>
+        <div id="results-container"><div id="result"></div></div><br><br>
+        
+        <h1>Courses I've Taken</h1>
+        <div id="courses-container"><div id="my-courses"></div></div><br>
+        <button id="clear-courses" onclick="clearCourses();">Clear courses</button><br><br>
+        <button onclick="submitForm();">Submit</button>
+    </body>
+</html>

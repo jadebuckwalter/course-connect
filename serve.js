@@ -10,11 +10,24 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+app.use(express.json());
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
     res.sendFile("home.html", {"root": __dirname + "/public"});
+});
+
+app.get("/form", function(req, res) {
+    res.sendFile("form.html", {"root": __dirname + "/public"});
+});
+
+app.post("/form", function(req, res) {
+    let insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
+    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], function(err) {
+        if (err) throw err;
+    });
+    res.end();
 });
 
 app.get("/search", function(req, res) {
