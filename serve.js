@@ -24,14 +24,25 @@ app.get("/form", function(req, res) {
 
 app.post("/form", function(req, res) {
     // Delete previous instances of this id in the database
-    let del = "DELETE FROM mentors WHERE id = ?";
-    connection.query(del, req.body.id, function(err) {
+    let deleteMentor = "DELETE FROM mentors WHERE id = ?";
+    connection.query(deleteMentor, req.body.id, function(err) {
+        if (err) throw err;
+    });
+    let deleteCourses = "DELETE FROM connect WHERE studentID = ?";
+    connection.query(deleteCourses, req.body.id, function(err) {
         if (err) throw err;
     });
     // Insert the latest mentor info
     let insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
     connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], function(err) {
         if (err) throw err;
+    });
+    // Insert all of the mentor's courses into the "connect" table
+    let query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
+    req.body.courses.forEach(course => {
+        connection.query(query, [req.body.id, course], function(err) {
+            if (err) throw err;
+        })
     });
     res.end();
 });

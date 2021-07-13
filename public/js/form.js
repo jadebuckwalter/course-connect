@@ -6,7 +6,8 @@ function submitForm() {
         id: document.getElementById("student-id").value,
         first: document.getElementById("first-name").value,
         last: document.getElementById("last-name").value,
-        email: document.getElementById("email").value
+        email: document.getElementById("email").value,
+        courses: myCourses
     };
     // HTTP request to send the search terms to the backend and store the results
     let xhttp = new XMLHttpRequest();
