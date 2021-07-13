@@ -14,4 +14,7 @@ function submitForm() {
     xhttp.open("POST", "http://localhost:3000/form", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.send(JSON.stringify(info));
+
+    // Display a "submitted" message
+    document.body.innerHTML = "Success! Your information has been submitted.";
 }
