@@ -16,7 +16,7 @@ function searchCourses() {
             results = xhttp.responseText;
         }
     }
-    xhttp.open("GET", "http://localhost:3000/search?key=" + search, false);
+    xhttp.open("GET", "/search?key=" + search, false);
     xhttp.send();
 
     return formatCourseList(results);
