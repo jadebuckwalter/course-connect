@@ -64,43 +64,11 @@ app.get("/search", function(req, res) {
     });
 });
 
-// Add mentors to the list based on how many times their id shows up
-// ids (list): list of student IDs
-// courses (list): list of courses being searched on
-// Return the list of mentors who have taken all of the courses
-async function addMentors(ids, courses) {
-    let frequency = 0;
-    let mentors = [];
-    for (let i = 0; i < ids.length; i++) {
-        // The number of times the current id appears in "ids" after the current occurrence
-        frequency = 0;
-
-        // Iterate through the rest of the ids to determine the frequency
-        for (let j = i; j < ids.length; j++) {
-            if (ids[i] === ids[j]) {
-                frequency++;
-            }
-        }
-
-        // If the ID appears for each of the courses, add the corresponding mentor to the list
-        if (frequency >= courses.length) {
-            let query = "SELECT first, last, email FROM mentors WHERE id = ?";
-            connection.query(query, ids[i], function(err, rows) {
-                if (err) throw err;
-                mentors.push(rows[0]);
-            });
-        }
-    }
-    return mentors;
-}
-
 // Receive a list of classes, query the database for mentors who have taken those classes,
-// and pass back a JSON with the results
+// and pass back a JSON with the mentor info
 app.post("/", async(req, res) => {
-    // List of courses that were submitted
-    let courses = "AP Calculus BC";
-    let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = ?)";
-    connection.query(query, courses, function(err, rows) {
+    let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course IN (?))";
+    connection.query(query, req.body.list, function(err, rows) {
         if (err) throw err;
         let mentors = [];
         rows.forEach(r => {

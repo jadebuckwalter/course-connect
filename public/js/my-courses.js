@@ -31,13 +31,11 @@ function clearCourses() {
 }
 
 function myCoursesToString() {
-    let result = "(";
+    let result = "";
     myCourses.forEach(course => {
-        result += "\"" + course + "\", ";
+        result += course + ", ";
     });
-    result = result.substring(0, result.length - 2) + ")";
-    console.log(result);
-    return result;
+    return result.substring(0, result.length - 2);
 }
 
 // Send a request to search for mentors that have taken the courses in the myCourses list
@@ -53,6 +51,8 @@ function searchMentors() {
             document.body.innerHTML = mentors;
         }
     }
+
     xhttp.open("POST", "/", true);
-    xhttp.send(myCourses);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify({list: myCoursesToString()}));
 }
