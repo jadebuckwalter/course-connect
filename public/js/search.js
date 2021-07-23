@@ -1,4 +1,6 @@
-// Search functionality for courses
+// Arrays to store courses and mentors
+let myCourses = [];
+let mentors = [];
 
 // Send a request to the backend to search for the value in the search bar
 // Return an array containing the courses in the search results
@@ -64,4 +66,106 @@ function displayResults() {
         });
         document.getElementById("result").append(button, br);
     }
+}
+
+// Clear the contents of a div
+// id (string): id of the div
+// container (string): id of the container surrounding the div
+function clear(id, container) {
+    // Remove the div
+    let div = document.getElementById(id);
+    div.parentNode.removeChild(div);
+    
+    // Create a new div with the same id and append it to the container div
+    div = document.createElement("div");
+    div.id = id;
+    document.getElementById(container).appendChild(div);
+}
+
+// Add a course to the "My Courses" list if it is not already there
+// name (string): the name of the course, as in the database
+function addCourse(name) {
+    // Check for the course in myCourses
+    let repeat = false;
+    myCourses.forEach(course => {
+        if (name === course) {
+            repeat = true;
+        }
+    });
+
+    // If the course is not already there, add it to myCourses and display it on the page
+    if (!repeat) {
+        myCourses.push(name);
+        let course = document.createElement("p");
+        course.innerHTML = name;
+        document.getElementById("my-courses").append(course);
+    }
+}
+
+// Call the clear function on the "My Courses" list, and reset the array
+function clearCourses() {
+    clear('my-courses', 'courses-container');
+    myCourses = [];
+}
+
+function myCoursesToString() {
+    let result = "";
+    myCourses.forEach(course => {
+        result += course + ", ";
+    });
+    return result.substring(0, result.length - 2);
+}
+
+// Send a request to search for mentors that have taken the courses in the myCourses list
+function searchMentors() {
+    // String to store the list of mentors
+    let results = "";
+
+    // HTTP request to send the search terms to the backend and store the results
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            results = xhttp.responseText;
+            document.body.innerHTML = formatMentors(results);
+        }
+    }
+
+    xhttp.open("POST", "/", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify({list: myCoursesToString()}));
+}
+
+// Convert the string of mentors given by the backend to an array
+// list (string): a string of mentors formatted by JSON.stringify
+// Return the resulting array
+function formatMentors(list) {
+    // Arrays to store names and emails
+    let names = [];
+    let emails = [];
+
+    // String of characters that separates each mentor in the string
+    let separator = "{";
+    
+    // Index of the first course
+    let index = 1;
+
+    // Iterate through the string and add each mentor to the array
+    while (index < list.lastIndexOf(separator)) {
+        names.push(list.substring(list.indexOf("\"first\"", index) + 9, list.indexOf("\"last\"", index) - 2) + " " +
+                    list.substring(list.indexOf("\"last\"", index) + 8, list.indexOf("\"email\"", index) - 2));
+        emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf(separator, index + 1) - 3));
+
+        index = list.indexOf(separator, index + 1);
+    }
+
+    // Add the last mentor
+    names.push(list.substring(list.indexOf("\"first\"", index) + 9, list.indexOf("\"last\"", index) - 2) + " " + 
+                list.substring(list.indexOf("\"last\"", index) + 8, list.indexOf("\"email\"", index) - 2));
+    emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf("}", index + 1) - 1));
+
+    // Add the names and emails to the results array
+    mentors.push(names);
+    mentors.push(emails);
+
+    return mentors;
 }
