@@ -82,11 +82,6 @@ app.post("/", async(req, res) => {
     });
 });
 
-// Open the results page
-app.get("/results", function(req, res) {
-    res.sendFile("mentors.html", {"root": __dirname + "/public"});
-});
-
 // Run the app on the server
 app.listen(3000, function() {
     console.log("Node server running on http://localhost:3000");
