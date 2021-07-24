@@ -107,14 +107,6 @@ function clearCourses() {
     myCourses = [];
 }
 
-function myCoursesToString() {
-    let result = "";
-    myCourses.forEach(course => {
-        result += course + ", ";
-    });
-    return result.substring(0, result.length - 2);
-}
-
 // Send a request to search for mentors that have taken the courses in the myCourses list
 function searchMentors() {
     // String to store the list of mentors
@@ -129,9 +121,15 @@ function searchMentors() {
         }
     }
 
+    let string = "";
+    myCourses.forEach(course => {
+        string += course + ", ";
+    });
+    string = string.substring(0, string.length - 2);
+
     xhttp.open("POST", "/", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send(JSON.stringify({list: myCoursesToString()}));
+    xhttp.send(JSON.stringify({list: string}));
 }
 
 // Convert the string of mentors given by the backend to an array
