@@ -1,6 +1,5 @@
 // Arrays to store courses and mentors
 let myCourses = [];
-let mentors = [];
 
 // Send a request to the backend to search for the value in the search bar
 // Return an array containing the courses in the search results
@@ -126,8 +125,7 @@ function searchMentors() {
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             results = xhttp.responseText;
-            formatMentors(results);
-            displayMentors();
+            displayMentors(formatMentors(results));
         }
     }
 
@@ -141,6 +139,7 @@ function searchMentors() {
 // Return the resulting array
 function formatMentors(list) {
     // Arrays to store names and emails
+    let mentors = [];
     let names = [];
     let emails = [];
 
@@ -172,7 +171,7 @@ function formatMentors(list) {
 }
 
 // Display the list of mentors in a table
-function displayMentors() {
+function displayMentors(mentors) {
     // Clear the course search page
     clear("home", "container");
 
