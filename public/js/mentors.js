@@ -1,5 +1,5 @@
 // Send a request to search for mentors that have taken the courses in the myCourses list
-function searchMentors() {
+function searchMentors(course) {
     // String to store the list of mentors
     let results = "";
 
@@ -12,15 +12,9 @@ function searchMentors() {
         }
     }
 
-    let string = "";
-    myCourses.forEach(course => {
-        string += course + ", ";
-    });
-    string = string.substring(0, string.length - 2);
-
     xhttp.open("POST", "/", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send(JSON.stringify({list: string}));
+    xhttp.send(JSON.stringify({course: course}));
 }
 
 // Convert the string of mentors given by the backend to an array

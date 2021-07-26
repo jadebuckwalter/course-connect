@@ -7,7 +7,7 @@
         <script src="js/courses.js"></script>
         <script src="js/form.js"></script>
     </head>
-    <body>
+    <body onload="initialize('form');">
         <h1>Student Course Connection Mentor Form</h1>
         <p>
             If you are accessing this form, you have previously signed up to be 
@@ -30,7 +30,7 @@
             When you're done, hit submit.
         </p>
         <label>Search for courses: <input type="text" id="search"></label>
-        <button onclick="displayResults();">Submit</button><br><br>
+        <button onclick="displayResultsForm();">Submit</button><br><br>
         <div id="results-container"><div id="result"></div></div><br><br>
         
         <h1>Courses I've Taken</h1>

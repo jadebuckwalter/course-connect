@@ -66,9 +66,9 @@ app.get("/search", function(req, res) {
 
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
-app.post("/", async(req, res) => {
-    let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course IN (?))";
-    connection.query(query, req.body.list, function(err, rows) {
+app.post("/", function(req, res) {
+    let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
+    connection.query(query, req.body.course, function(err, rows) {
         if (err) throw err;
         let mentors = [];
         rows.forEach(r => {
