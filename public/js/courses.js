@@ -1,6 +1,15 @@
 // Arrays to store courses and mentors
 let myCourses = [];
 
+// Things to initialize when the page is loaded
+function initialize() {
+    document.getElementById("search").addEventListener("keydown", function(event) {
+        if (event.code === "Enter") {
+            displayResults();
+        }
+    });
+}
+
 // Send a request to the backend to search for the value in the search bar
 // Return an array containing the courses in the search results
 function searchCourses() {
