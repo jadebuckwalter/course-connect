@@ -6,21 +6,26 @@ let myCourses = [];
 function searchCourses() {
     // User's input in the search box
     let search = document.getElementById("search").value;
-    
-    // String of results based on the user's search
-    let results = "";
 
-    // HTTP request to send the search terms to the backend and store the results
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (xhttp.readyState === 4 && xhttp.status === 200) {
-            results = xhttp.responseText;
+    // Check for valid input
+    if (search === "") {
+        document.getElementById("result").innerHTML = "Please enter a valid course name.";
+    } else {
+        // String of results based on the user's search
+        let results = "";
+
+        // HTTP request to send the search terms to the backend and store the results
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                results = xhttp.responseText;
+            }
         }
-    }
-    xhttp.open("GET", "/search?key=" + search, false);
-    xhttp.send();
+        xhttp.open("GET", "/search?key=" + search, false);
+        xhttp.send();
 
-    return formatCourseList(results);
+        return formatCourseList(results);
+    }
 }
 
 // Convert the string of courses given by the backend to an array
@@ -53,17 +58,22 @@ function displayResults() {
     
     // Get the array of courses based on the current search terms
     let courses = searchCourses();
-    
-    // Iterate through the courses and create a button for each one
-    for (let i = 0; i < courses.length; i++) {
-        let button = document.createElement("button");
-        let br = document.createElement("br");
-        button.id = "button" + i;
-        button.innerHTML = courses[i];
-        button.addEventListener("click", function() {
-            addCourse(button.innerHTML);
-        });
-        document.getElementById("result").append(button, br);
+
+    // Check for valid results
+    if (courses[0] === "[]") {
+        document.getElementById("result").innerHTML = "Please enter a valid course name.";
+    } else {
+        // Iterate through the courses and create a button for each one
+        for (let i = 0; i < courses.length; i++) {
+            let button = document.createElement("button");
+            let br = document.createElement("br");
+            button.id = "button" + i;
+            button.innerHTML = courses[i];
+            button.addEventListener("click", function() {
+                addCourse(button.innerHTML);
+            });
+            document.getElementById("result").append(button, br);
+        }
     }
 }
 
