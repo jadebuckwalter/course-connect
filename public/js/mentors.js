@@ -73,3 +73,8 @@ function displayMentors(mentors) {
         document.getElementById("mentor-table").append(row);
     }
 }
+
+// Redirects back to the main page
+function backToSearch() {
+    window.location.reload();
+}
