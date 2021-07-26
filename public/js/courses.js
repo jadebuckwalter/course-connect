@@ -63,6 +63,9 @@ function formatCourseList(list) {
 
 // Display the results of the search query as buttons that when clicked on, search mentors
 function displayResults() {
+    // Clear the results from the previous search
+    clear("result", "results-container");
+
     // Get the array of courses based on the current search terms
     let courses = searchCourses();
 

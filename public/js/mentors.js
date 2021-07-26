@@ -61,16 +61,21 @@ function displayMentors(mentors) {
     // Show the mentor table
     document.getElementById("mentors").hidden = false;
     
-    // Iterate through the mentors array and create a row for each mentor
-    for (let i = 0; i < mentors[0].length; i++) {
-        let row = document.createElement("tr");
-        row.id = "row" + i;
-        let name = document.createElement("td");
-        let email = document.createElement("td");
-        name.innerHTML = mentors[0][i];
-        email.innerHTML = mentors[1][i];
-        row.append(name, email);
-        document.getElementById("mentor-table").append(row);
+    // Check to see if there are any results
+    if (mentors[0][0] === "[] []") {
+        document.getElementById("table-container").innerHTML = "No results";
+    } else {
+        // Iterate through the mentors array and create a row for each mentor
+        for (let i = 0; i < mentors[0].length; i++) {
+            let row = document.createElement("tr");
+            row.id = "row" + i;
+            let name = document.createElement("td");
+            let email = document.createElement("td");
+            name.innerHTML = mentors[0][i];
+            email.innerHTML = mentors[1][i];
+            row.append(name, email);
+            document.getElementById("mentor-table").append(row);
+        }
     }
 }
 
