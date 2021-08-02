@@ -58,9 +58,9 @@ function formatMentors(list) {
 
 // Randomize the list of mentors
 function randomize(mentors) {
-    let name, email, index, i;
+    let name, email, index;
     let length = mentors[0].length;
-    for (i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         index = Math.floor(Math.random() * length);
         name = mentors[0][index];
         email = mentors[1][index];

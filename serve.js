@@ -56,11 +56,11 @@ app.get("/search", function(req, res) {
     let sql = "SELECT * FROM courses WHERE name LIKE ?";
     connection.query(sql, ["%" + req.query.key + "%"], function(err, rows) {
         if (err) throw err;
-        let data = [];
-        for (let i = 0; i < rows.length; i++) {
-            data.push(rows[i].name);
-        }
-        res.end(JSON.stringify(data));
+        let courses = [];
+        rows.forEach(row => {
+            courses.push(row.name);
+        });
+        res.end(JSON.stringify(courses));
     });
 });
 
