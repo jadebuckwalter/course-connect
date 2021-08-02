@@ -56,6 +56,22 @@ function formatMentors(list) {
     return mentors;
 }
 
+// Randomize the list of mentors
+function randomize(mentors) {
+    let name, email, index, i;
+    let length = mentors[0].length;
+    for (i = 0; i < length; i++) {
+        index = Math.floor(Math.random() * length);
+        name = mentors[0][index];
+        email = mentors[1][index];
+        mentors[0][index] = mentors[0][i];
+        mentors[1][index] = mentors[1][i];
+        mentors[0][i] = name;
+        mentors[1][i] = email;
+    }
+    return mentors;
+}
+
 // Display the list of mentors in a table
 function displayMentors(mentors) {
     // Clear the course search page
@@ -68,6 +84,7 @@ function displayMentors(mentors) {
     if (mentors[0][0] === "[] []") {
         document.getElementById("table-container").innerHTML = "No results";
     } else {
+        mentors = randomize(mentors);
         // Iterate through the mentors array and create a row for each mentor
         for (let i = 0; i < mentors[0].length; i++) {
             let row = document.createElement("tr");
