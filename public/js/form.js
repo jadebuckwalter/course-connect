@@ -11,14 +11,20 @@ function submitForm() {
         email: document.getElementById("email").value,
         courses: myCourses
     };
-    // HTTP request to send the search terms to the backend and store the results
-    let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/form", true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send(JSON.stringify(info));
 
-    // Display a "submitted" message
-    document.body.innerHTML = "Success! Your information has been submitted.";
+    // Check for user input
+    if (info.id === "" || info.first === "" || info.last === "" || info.email === "" || info.courses.length === 0) {
+        document.getElementById("error").hidden = false;
+    } else {
+        // HTTP request to send the search terms to the backend and store the results
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/form", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(info));
+
+        // Display a "submitted" message
+        document.body.innerHTML = "Success! Your information has been submitted.";
+    }
 }
 
 // For the form, display the results of the search query as buttons
