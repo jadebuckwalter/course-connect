@@ -91,8 +91,11 @@ function displayMentors(mentors) {
             row.id = "row" + i;
             let name = document.createElement("td");
             let email = document.createElement("td");
+            let link = document.createElement("a");
+            link.href = "mailto:" + mentors[1][i];
+            link.innerHTML = mentors[1][i];
+            email.append(link);
             name.innerHTML = mentors[0][i];
-            email.innerHTML = mentors[1][i];
             row.append(name, email);
             document.getElementById("mentor-table").append(row);
         }
