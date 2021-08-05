@@ -1,13 +1,14 @@
-let express = require("express");
-let app = express();
-let mysql = require("mysql");
+const express = require("express");
+const app = express();
+const mysql = require("mysql");
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use(express.static(__dirname + "/public"));
 
 // Connect to the MySQL database
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "vwV6bWuEfZoUyqAg3ff9!UJy",
@@ -83,6 +84,6 @@ app.post("/results", function(req, res) {
 });
 
 // Run the app on the server
-app.listen(3000, function() {
-    console.log("Node server running on http://localhost:3000");
+app.listen(port, function() {
+    console.log(`CRLSCourseConnect listening at http://localhost:${port}`);
 });

@@ -1,11 +1,14 @@
 {
   "name": "course-connect",
   "version": "1.0.0",
-  "description": "Site to help students search for classes and connect with mentors",
+  "description": "Site to help CRLS students search for classes and connect with mentors",
   "homepage": "https://github.com/jadebuckwalter/course-connect#readme",
   "repository": "github:jadebuckwalter/course-connect",
   "author": "Jade Buckwalter",
   "license": "ISC",
+  "scripts": {
+    "start": "node serve.js"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
