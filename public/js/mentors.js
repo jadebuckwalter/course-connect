@@ -5,7 +5,7 @@ function searchMentors(course) {
 
     // HTTP request to send the search terms to the backend and store the results
     let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = () => {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             results = xhttp.responseText;
             displayMentors(formatMentors(results));

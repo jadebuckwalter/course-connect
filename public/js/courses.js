@@ -1,6 +1,6 @@
 // Things to initialize when the page is loaded
 function initialize(page) {
-    document.getElementById("search").addEventListener("keydown", function(event) {
+    document.getElementById("search").addEventListener("keydown", (event) => {
         if (event.code === "Enter") {
             searchCourses(page);
         }
@@ -19,7 +19,7 @@ function searchCourses(page) {
     } else {
         // HTTP request to send the search terms to the backend and store the results
         let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = () => {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
                 displayResults(formatCourseList(xhttp.responseText), page);
             }
@@ -80,7 +80,7 @@ function displayResults(courses, page) {
             let br = document.createElement("br");
             button.id = "button" + i;
             button.innerHTML = courses[i];
-            button.addEventListener("click", function() {
+            button.addEventListener("click", () => {
                 page === "home" ? searchMentors(button.innerHTML) : addCourse(button.innerHTML);
             });
             document.getElementById("result").append(button, br);

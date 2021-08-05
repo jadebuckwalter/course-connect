@@ -17,35 +17,35 @@ const connection = mysql.createConnection({
 connection.connect();
 
 // Direct to homepage
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
     res.sendFile("home.html", {"root": __dirname + "/public"});
 });
 
 // Direct to the mentor form
-app.get("/form", function(req, res) {
+app.get("/form", (req, res) => {
     res.sendFile("form.html", {"root": __dirname + "/public"});
 });
 
 // Receive info from the mentor form and enter it into the database
-app.post("/form", function(req, res) {
+app.post("/form", (req, res) => {
     // Delete previous instances of this id in the database
     let deleteMentor = "DELETE FROM mentors WHERE id = ?";
-    connection.query(deleteMentor, req.body.id, function(err) {
+    connection.query(deleteMentor, req.body.id, (err) => {
         if (err) throw err;
     });
     let deleteCourses = "DELETE FROM connect WHERE studentID = ?";
-    connection.query(deleteCourses, req.body.id, function(err) {
+    connection.query(deleteCourses, req.body.id, (err) => {
         if (err) throw err;
     });
     // Insert the latest mentor info
     let insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
-    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], function(err) {
+    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], (err) => {
         if (err) throw err;
     });
     // Insert all of the mentor's courses into the "connect" table
     let query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
     req.body.courses.forEach(course => {
-        connection.query(query, [req.body.id, course], function(err) {
+        connection.query(query, [req.body.id, course], (err) => {
             if (err) throw err;
         })
     });
@@ -53,9 +53,9 @@ app.post("/form", function(req, res) {
 });
 
 // Receive search results, query the database for them, and pass back a JSON with the results
-app.post("/search", function(req, res) {
+app.post("/search", (req, res) => {
     let sql = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ?";
-    connection.query(sql, [req.body.key, req.body.key.substring(2)], function(err, rows) {
+    connection.query(sql, [req.body.key, req.body.key.substring(2)], (err, rows) => {
         if (err) throw err;
         let courses = [];
         rows.forEach(row => {
@@ -67,9 +67,9 @@ app.post("/search", function(req, res) {
 
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
-app.post("/results", function(req, res) {
+app.post("/results", (req, res) => {
     let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
-    connection.query(query, req.body.course, function(err, rows) {
+    connection.query(query, req.body.course, (err, rows) => {
         if (err) throw err;
         let mentors = [];
         rows.forEach(r => {
@@ -84,6 +84,6 @@ app.post("/results", function(req, res) {
 });
 
 // Run the app on the server
-app.listen(port, function() {
+app.listen(port, () => {
     console.log(`CRLSCourseConnect listening at http://localhost:${port}`);
 });
