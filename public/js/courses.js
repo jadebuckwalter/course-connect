@@ -11,14 +11,14 @@ function initialize(page) {
 // Return an array containing the courses in the search results
 function searchCourses(page) {
     // User's input in the search box
-    let search = document.getElementById("search").value;
+    const search = document.getElementById("search").value;
 
     // Check for valid input
     if (search === "") {
         document.getElementById("result").innerHTML = "Please enter a valid course name.";
     } else {
         // HTTP request to send the search terms to the backend and store the results
-        let xhttp = new XMLHttpRequest();
+        const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = () => {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
                 displayResults(formatCourseList(xhttp.responseText), page);
@@ -47,10 +47,10 @@ function formatQuery(search) {
 // Return the resulting array
 function formatCourseList(list) {
     // Array to store the search results
-    let results = [];
+    const results = [];
     
     // String of characters that separates each course name in the string
-    let separator = "\",\"";
+    const separator = "\",\"";
     
     // Index of the first course
     let index = 2;
@@ -104,7 +104,7 @@ function clear(id, container) {
 
 // Check for abbreviations and return the substitution if available
 function abbreviations(word) {
-    let abbreviations = {
+    const abbreviations = {
         "apcs": "AP Computer Science",
         "apcsp": "AP Computer Science Principles",
         "apes": "AP Environmental Science",

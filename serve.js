@@ -29,21 +29,21 @@ app.get("/form", (req, res) => {
 // Receive info from the mentor form and enter it into the database
 app.post("/form", (req, res) => {
     // Delete previous instances of this id in the database
-    let deleteMentor = "DELETE FROM mentors WHERE id = ?";
+    const deleteMentor = "DELETE FROM mentors WHERE id = ?";
     connection.query(deleteMentor, req.body.id, (err) => {
         if (err) throw err;
     });
-    let deleteCourses = "DELETE FROM connect WHERE studentID = ?";
+    const deleteCourses = "DELETE FROM connect WHERE studentID = ?";
     connection.query(deleteCourses, req.body.id, (err) => {
         if (err) throw err;
     });
     // Insert the latest mentor info
-    let insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
+    const insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
     connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], (err) => {
         if (err) throw err;
     });
     // Insert all of the mentor's courses into the "connect" table
-    let query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
+    const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
     req.body.courses.forEach(course => {
         connection.query(query, [req.body.id, course], (err) => {
             if (err) throw err;
@@ -54,10 +54,10 @@ app.post("/form", (req, res) => {
 
 // Receive search results, query the database for them, and pass back a JSON with the results
 app.post("/search", (req, res) => {
-    let sql = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ?";
-    connection.query(sql, [req.body.key, req.body.key.substring(2)], (err, rows) => {
+    const query = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ?";
+    connection.query(query, [req.body.key, req.body.key.substring(2)], (err, rows) => {
         if (err) throw err;
-        let courses = [];
+        const courses = [];
         rows.forEach(row => {
             courses.push(row.name);
         });
@@ -68,10 +68,10 @@ app.post("/search", (req, res) => {
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
 app.post("/results", (req, res) => {
-    let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
+    const query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
     connection.query(query, req.body.course, (err, rows) => {
         if (err) throw err;
-        let mentors = [];
+        const mentors = [];
         rows.forEach(r => {
             mentors.push({
                 "first": r.first,

@@ -1,14 +1,10 @@
 // Send a request to search for mentors that have taken the courses in the myCourses list
 function searchMentors(course) {
-    // String to store the list of mentors
-    let results = "";
-
     // HTTP request to send the search terms to the backend and store the results
-    let xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
-            results = xhttp.responseText;
-            displayMentors(formatMentors(results));
+            displayMentors(formatMentors(xhttp.responseText));
         }
     }
 
@@ -25,12 +21,12 @@ function searchMentors(course) {
 // Return the resulting array
 function formatMentors(list) {
     // Arrays to store names and emails
-    let mentors = [];
-    let names = [];
-    let emails = [];
+    const mentors = [];
+    const names = [];
+    const emails = [];
 
     // String of characters that separates each mentor in the string
-    let separator = "{";
+    const separator = "{";
     
     // Index of the first course
     let index = 1;
@@ -59,7 +55,7 @@ function formatMentors(list) {
 // Randomize the list of mentors
 function randomize(mentors) {
     let name, email, index;
-    let length = mentors[0].length;
+    const length = mentors[0].length;
     for (let i = 0; i < length; i++) {
         index = Math.floor(Math.random() * length);
         name = mentors[0][index];

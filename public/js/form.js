@@ -1,10 +1,10 @@
 // Array to store list of courses that the mentor has taken
-let myCourses = [];
+const myCourses = [];
 
 // Function to submit the form
 function submitForm() {
     // User's inputs in the form
-    let info = {
+    const info = {
         id: document.getElementById("student-id").value,
         first: document.getElementById("first-name").value,
         last: document.getElementById("last-name").value,
@@ -17,7 +17,7 @@ function submitForm() {
         document.getElementById("error").hidden = false;
     } else {
         // HTTP request to send the search terms to the backend and store the results
-        let xhttp = new XMLHttpRequest();
+        const xhttp = new XMLHttpRequest();
         xhttp.open("POST", "/form");
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(info));
@@ -41,7 +41,7 @@ function addCourse(name) {
     // If the course is not already there, add it to myCourses and display it on the page
     if (!repeat) {
         myCourses.push(name);
-        let course = document.createElement("p");
+        const course = document.createElement("p");
         course.innerHTML = name;
         document.getElementById("my-courses").append(course);
     }
