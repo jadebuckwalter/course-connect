@@ -52,11 +52,9 @@ app.post("/form", function(req, res) {
 });
 
 // Receive search results, query the database for them, and pass back a JSON with the results
-app.get("/search", function(req, res) {
-    let sql = "SELECT * FROM courses WHERE ((name LIKE ?) OR (name LIKE ?))";
-    let key = req.query.key;
-    // Search for course names that contain the search term at the start of a word
-    connection.query(sql, ["% " + key + "%", key + "%"], function(err, rows) {
+app.post("/search", function(req, res) {
+    let sql = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ?";
+    connection.query(sql, [req.body.key, req.body.key.substring(2)], function(err, rows) {
         if (err) throw err;
         let courses = [];
         rows.forEach(row => {

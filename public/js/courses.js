@@ -5,7 +5,7 @@ function initialize(page) {
             if (page === "form") {
                 displayResultsForm();
             } else if (page === "home") {
-                displayResults();
+                searchCourses();
             }
         }
     });
@@ -21,21 +21,29 @@ function searchCourses() {
     if (search === "") {
         document.getElementById("result").innerHTML = "Please enter a valid course name.";
     } else {
-        // String of results based on the user's search
-        let results = "";
-
         // HTTP request to send the search terms to the backend and store the results
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
-                results = xhttp.responseText;
+                displayResults(formatCourseList(xhttp.responseText));
             }
         }
-        xhttp.open("GET", "/search?key=" + search, false);
-        xhttp.send();
-
-        return formatCourseList(results);
+        xhttp.open("POST", "/search", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify({key: formatQuery(search)}));
     }
+}
+
+// Format part of the search query based on the search terms
+function formatQuery(search) {
+    let query = "% ";
+    let index = 0;
+    while (index < search.lastIndexOf(" ")) {
+        query += search.substring(index, search.indexOf(" ", index)) + "% ";
+        index = search.indexOf(" ", index) + 1;
+    }
+    query += search.substring(search.lastIndexOf(" ") + 1) + "%";
+    return query;
 }
 
 // Convert the string of courses given by the backend to an array
@@ -62,12 +70,9 @@ function formatCourseList(list) {
 }
 
 // Display the results of the search query as buttons that when clicked on, search mentors
-function displayResults() {
+function displayResults(courses) {
     // Clear the results from the previous search
     clear("result", "results-container");
-
-    // Get the array of courses based on the current search terms
-    let courses = searchCourses();
 
     // Check for valid results
     if (courses[0] === "[]") {
