@@ -18,7 +18,7 @@ function submitForm() {
     } else {
         // HTTP request to send the search terms to the backend and store the results
         let xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "/form", true);
+        xhttp.open("POST", "/form");
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(info));
 
@@ -28,12 +28,9 @@ function submitForm() {
 }
 
 // For the form, display the results of the search query as buttons
-function displayResultsForm() {
+function displayResultsForm(courses) {
     // Clear the results from the previous search
     clear("result", "results-container");
-    
-    // Get the array of courses based on the current search terms
-    let courses = searchCourses();
 
     // Check for valid results
     if (courses[0] === "[]") {

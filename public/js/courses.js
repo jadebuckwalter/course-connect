@@ -2,18 +2,14 @@
 function initialize(page) {
     document.getElementById("search").addEventListener("keydown", function(event) {
         if (event.code === "Enter") {
-            if (page === "form") {
-                displayResultsForm();
-            } else if (page === "home") {
-                searchCourses();
-            }
+            searchCourses(page);
         }
     });
 }
 
 // Send a request to the backend to search for the value in the search bar
 // Return an array containing the courses in the search results
-function searchCourses() {
+function searchCourses(page) {
     // User's input in the search box
     let search = document.getElementById("search").value;
 
@@ -25,10 +21,11 @@ function searchCourses() {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
-                displayResults(formatCourseList(xhttp.responseText));
+                let results = formatCourseList(xhttp.responseText);
+                page === "home" ? displayResults(results) : displayResultsForm(results);
             }
         }
-        xhttp.open("POST", "/search", true);
+        xhttp.open("POST", "/search");
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify({key: formatQuery(search)}));
     }

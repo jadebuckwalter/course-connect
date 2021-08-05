@@ -66,7 +66,7 @@ app.post("/search", function(req, res) {
 
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
-app.post("/", function(req, res) {
+app.post("/results", function(req, res) {
     let query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
     connection.query(query, req.body.course, function(err, rows) {
         if (err) throw err;

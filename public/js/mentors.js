@@ -15,7 +15,7 @@ function searchMentors(course) {
     // Update the text above the mentor table
     document.getElementById("mentor-results").innerHTML = "Mentors who have taken " + course + ":";
 
-    xhttp.open("POST", "/", true);
+    xhttp.open("POST", "/results");
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.send(JSON.stringify({course: course}));
 }
