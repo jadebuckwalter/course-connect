@@ -27,29 +27,6 @@ function submitForm() {
     }
 }
 
-// For the form, display the results of the search query as buttons
-function displayResultsForm(courses) {
-    // Clear the results from the previous search
-    clear("result", "results-container");
-
-    // Check for valid results
-    if (courses[0] === "[]") {
-        document.getElementById("result").innerHTML = "Please enter a valid course name.";
-    } else {
-        // Iterate through the courses and create a button for each one
-        for (let i = 0; i < courses.length; i++) {
-            let button = document.createElement("button");
-            let br = document.createElement("br");
-            button.id = "button" + i;
-            button.innerHTML = courses[i];
-            button.addEventListener("click", function() {
-                addCourse(button.innerHTML);
-            });
-            document.getElementById("result").append(button, br);
-        }
-    }
-}
-
 // Add a course to the "My Courses" list if it is not already there
 // name (string): the name of the course, as in the database
 function addCourse(name) {

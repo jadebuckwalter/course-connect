@@ -21,8 +21,7 @@ function searchCourses(page) {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
-                let results = formatCourseList(xhttp.responseText);
-                page === "home" ? displayResults(results) : displayResultsForm(results);
+                displayResults(formatCourseList(xhttp.responseText), page);
             }
         }
         xhttp.open("POST", "/search");
@@ -67,7 +66,7 @@ function formatCourseList(list) {
 }
 
 // Display the results of the search query as buttons that when clicked on, search mentors
-function displayResults(courses) {
+function displayResults(courses, page) {
     // Clear the results from the previous search
     clear("result", "results-container");
 
@@ -82,7 +81,7 @@ function displayResults(courses) {
             button.id = "button" + i;
             button.innerHTML = courses[i];
             button.addEventListener("click", function() {
-                searchMentors(button.innerHTML);
+                page === "home" ? searchMentors(button.innerHTML) : addCourse(button.innerHTML);
             });
             document.getElementById("result").append(button, br);
         }
