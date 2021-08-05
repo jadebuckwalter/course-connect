@@ -35,10 +35,10 @@ function formatQuery(search) {
     let query = "% ";
     let index = 0;
     while (index < search.lastIndexOf(" ")) {
-        query += search.substring(index, search.indexOf(" ", index)) + "% ";
+        query += abbreviations(search.substring(index, search.indexOf(" ", index))) + "% ";
         index = search.indexOf(" ", index) + 1;
     }
-    query += search.substring(search.lastIndexOf(" ") + 1) + "%";
+    query += abbreviations(search.substring(search.lastIndexOf(" ") + 1)) + "%";
     return query;
 }
 
@@ -100,4 +100,28 @@ function clear(id, container) {
     div = document.createElement("div");
     div.id = id;
     document.getElementById(container).appendChild(div);
+}
+
+// Check for abbreviations and return the substitution if available
+function abbreviations(word) {
+    let abbreviations = {
+        "apcs": "AP Computer Science",
+        "apcsp": "AP Computer Science Principles",
+        "apes": "AP Environmental Science",
+        "apush": "AP United States History",
+        "asl": "American Sign Language",
+        "cs": "computer science",
+        "e&m": "Electricity and Magnetism",
+        "precalc": "Pre-Calculus",
+        "rsta": "TC",
+        "stats": "Statistics",
+        "ta": "Teaching Assistantship",
+        "us": "United States",
+        "u.s.": "United States"
+    };
+
+    if (abbreviations[word] !== undefined) {
+        word = abbreviations[word];
+    }
+    return word;
 }
