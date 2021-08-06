@@ -18,38 +18,22 @@ connection.connect();
 
 // Direct to homepage
 app.get("/", (req, res) => {
-    res.sendFile("home.html", {"root": __dirname + "/public"});
+    res.sendFile(__dirname + "/public/home.html");
+});
+
+// Direct to login
+app.get("/login", (req, res) => {
+    res.sendFile(__dirname + "/public/login.html");
 });
 
 // Direct to the mentor form
 app.get("/form", (req, res) => {
-    res.sendFile("form.html", {"root": __dirname + "/public"});
+    res.sendFile(__dirname + "/public/form.html");
 });
 
-// Receive info from the mentor form and enter it into the database
-app.post("/form", (req, res) => {
-    // Delete previous instances of this id in the database
-    const deleteMentor = "DELETE FROM mentors WHERE id = ?";
-    connection.query(deleteMentor, req.body.id, (err) => {
-        if (err) throw err;
-    });
-    const deleteCourses = "DELETE FROM connect WHERE studentID = ?";
-    connection.query(deleteCourses, req.body.id, (err) => {
-        if (err) throw err;
-    });
-    // Insert the latest mentor info
-    const insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
-    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], (err) => {
-        if (err) throw err;
-    });
-    // Insert all of the mentor's courses into the "connect" table
-    const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
-    req.body.courses.forEach(course => {
-        connection.query(query, [req.body.id, course], (err) => {
-            if (err) throw err;
-        })
-    });
-    res.end();
+// Redirect to the home page if the user has logged in with correct credentials
+app.post("/login", (req, res) => {
+    res.redirect("/");
 });
 
 // Receive search results, query the database for them, and pass back a JSON with the results
@@ -81,6 +65,32 @@ app.post("/results", (req, res) => {
         });
         res.end(JSON.stringify(mentors));
     });
+});
+
+// Receive info from the mentor form and enter it into the database
+app.post("/form", (req, res) => {
+    // Delete previous instances of this id in the database
+    const deleteMentor = "DELETE FROM mentors WHERE id = ?";
+    connection.query(deleteMentor, req.body.id, (err) => {
+        if (err) throw err;
+    });
+    const deleteCourses = "DELETE FROM connect WHERE studentID = ?";
+    connection.query(deleteCourses, req.body.id, (err) => {
+        if (err) throw err;
+    });
+    // Insert the latest mentor info
+    const insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
+    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], (err) => {
+        if (err) throw err;
+    });
+    // Insert all of the mentor's courses into the "connect" table
+    const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
+    req.body.courses.forEach(course => {
+        connection.query(query, [req.body.id, course], (err) => {
+            if (err) throw err;
+        })
+    });
+    res.end();
 });
 
 // Run the app on the server
