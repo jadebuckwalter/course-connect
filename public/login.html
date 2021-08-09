@@ -5,10 +5,12 @@
     <head>
         <title>Login | CRLSCourseConnect</title>
         <script src="js/login.js"></script>
+        <script src="https://apis.google.com/js/api.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="237365754441-4033njub54s3qujgketiufaq6dfgi6ne.apps.googleusercontent.com">
     </head>
     <body>
-        <form action="/login" method="POST">
-            <button>Log in with your CPSD Google account</button>
-        </form>
+        <div class="g-signin2" data-onsuccess="login"></div>
+        <div id="error"></div>
     </body>
 </html>
