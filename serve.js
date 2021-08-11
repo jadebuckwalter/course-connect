@@ -16,13 +16,8 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-// Direct to homepage
+// Direct to login first (will automatically redirect to home if user is logged in)
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/home.html");
-});
-
-// Direct to login
-app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/public/login.html");
 });
 
@@ -32,8 +27,8 @@ app.get("/form", (req, res) => {
 });
 
 // Redirect to the home page if the user has logged in with correct credentials
-app.post("/login", (req, res) => {
-    res.redirect("/");
+app.post("/", (req, res) => {
+    res.sendFile(__dirname + "/public/home.html");
 });
 
 // Receive search results, query the database for them, and pass back a JSON with the results
