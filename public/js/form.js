@@ -49,6 +49,6 @@ function addCourse(name) {
 
 // Call the clear function on the "My Courses" list, and reset the array
 function clearCourses() {
-    clear('my-courses', 'courses-container');
+    clear("my-courses", "courses-container", "div");
     myCourses = [];
 }

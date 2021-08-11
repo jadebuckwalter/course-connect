@@ -70,15 +70,17 @@ function randomize(mentors) {
 
 // Display the list of mentors in a table
 function displayMentors(mentors) {
-    // Clear the course search page
-    clear("home", "container");
+    // Clear the mentor table
+    clear("mentor-table", "table-container", "table");
 
-    // Show the mentor table
+    // Hide the homepage and show the mentor table
+    document.getElementById("home").hidden = true;
     document.getElementById("mentors").hidden = false;
     
     // Check to see if there are any results
     if (mentors[0][0] === "[] []") {
-        document.getElementById("table-container").innerHTML = "No results";
+        document.getElementById("mentor-table").innerHTML = "No results";
+        document.getElementById("mentor-results").hidden = true;
     } else {
         mentors = randomize(mentors);
         // Iterate through the mentors array and create a row for each mentor
@@ -100,5 +102,13 @@ function displayMentors(mentors) {
 
 // Redirects back to the main page
 function backToSearch() {
-    window.location.reload();
+    // Hide the mentors page and show the home page
+    document.getElementById("mentors").hidden = true;
+    document.getElementById("home").hidden = false;
+    
+    // Clear the search box and the results
+    clear("result", "results-container", "div");
+    clear("search", "label", "input");
+    
+    initialize("home");
 }

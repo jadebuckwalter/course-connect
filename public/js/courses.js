@@ -68,7 +68,7 @@ function formatCourseList(list) {
 // Display the results of the search query as buttons that when clicked on, search mentors
 function displayResults(courses, page) {
     // Clear the results from the previous search
-    clear("result", "results-container");
+    clear("result", "results-container", "div");
 
     // Check for valid results
     if (courses[0] === "[]") {
@@ -91,13 +91,14 @@ function displayResults(courses, page) {
 // Clear the contents of a div
 // id (string): id of the div
 // container (string): id of the container surrounding the div
-function clear(id, container) {
+// type (string): the type of element being created
+function clear(id, container, type) {
     // Remove the div
     let div = document.getElementById(id);
     div.parentNode.removeChild(div);
     
     // Create a new div with the same id and append it to the container div
-    div = document.createElement("div");
+    div = document.createElement(type);
     div.id = id;
     document.getElementById(container).appendChild(div);
 }
