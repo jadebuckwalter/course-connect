@@ -74,13 +74,13 @@ function displayMentors(mentors) {
     clear("mentor-table", "table-container", "table");
 
     // Hide the homepage and show the mentor table
-    document.getElementById("home").hidden = true;
-    document.getElementById("mentors").hidden = false;
+    document.getElementById("home").style.display = "none";
+    document.getElementById("mentors").style.display = "block";
     
     // Check to see if there are any results
     if (mentors[0][0] === "[] []") {
         document.getElementById("mentor-table").innerHTML = "No results";
-        document.getElementById("mentor-results").hidden = true;
+        document.getElementById("mentor-results").style.display = "none";
     } else {
         mentors = randomize(mentors);
         // Iterate through the mentors array and create a row for each mentor
@@ -103,8 +103,8 @@ function displayMentors(mentors) {
 // Redirects back to the main page
 function backToSearch() {
     // Hide the mentors page and show the home page
-    document.getElementById("mentors").hidden = true;
-    document.getElementById("home").hidden = false;
+    document.getElementById("mentors").style.display = "none";
+    document.getElementById("home").style.display = "block";
     
     // Clear the search box and the results
     clear("result", "results-container", "div");

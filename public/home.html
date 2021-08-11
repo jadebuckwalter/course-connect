@@ -10,12 +10,12 @@
     <body onload="initialize('home');">
         <h1>Welcome to CRLSCourseConnect!</h1>
         <div id="container">
-            <div id="home">
+            <div id="home" style="display: block">
                 <label id="label">Search for courses: <input id="search"></label>
                 <button onclick="searchCourses('home');">Submit</button><br><br>
                 <div id="results-container"><div id="result"></div></div><br><br>
             </div>
-            <div id="mentors" hidden>
+            <div id="mentors" style="display: none">
                 <button onclick="backToSearch();">Back to search</button><br><br>
                 <div id="table-container">
                     <p id="mentor-results"></p>
