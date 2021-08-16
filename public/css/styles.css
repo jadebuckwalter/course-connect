@@ -1,4 +1,5 @@
 .course-list:hover {
+    background-color: #eeeeee;
     cursor: pointer;
 }
 
