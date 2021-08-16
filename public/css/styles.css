@@ -6,3 +6,15 @@
     text-decoration: line-through;
     cursor: pointer;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+table, td {
+    border: 1px solid black;
+}

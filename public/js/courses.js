@@ -68,7 +68,7 @@ function formatCourseList(list) {
 // Display the results of the search query as buttons that when clicked on, search mentors
 function displayResults(courses, page) {
     // Clear the results from the previous search
-    clear("result", "results-container", "div");
+    clear("result", "results-container", "table");
 
     // Check for valid results
     if (courses[0] === "[]") {
