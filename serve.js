@@ -21,14 +21,19 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/login.html");
 });
 
-// Direct to the mentor form
-app.get("/form", (req, res) => {
-    res.sendFile(__dirname + "/public/form.html");
-});
-
 // Redirect to the home page if the user has logged in with correct credentials
 app.post("/", (req, res) => {
     res.sendFile(__dirname + "/public/home.html");
+});
+
+// Direct to the login page for the mentor form
+app.get("/form", (req, res) => {
+    res.sendFile(__dirname + "/public/form-login.html");
+});
+
+// Redirect to the mentor form once the user has logged in
+app.post("/form", (req, res) => {
+    res.sendFile(__dirname + "/public/form.html");
 });
 
 // Receive search results, query the database for them, and pass back a JSON with the results
@@ -63,7 +68,7 @@ app.post("/results", (req, res) => {
 });
 
 // Receive info from the mentor form and enter it into the database
-app.post("/form", (req, res) => {
+app.post("/submit", (req, res) => {
     // Delete previous instances of this id in the database
     const deleteMentor = "DELETE FROM mentors WHERE id = ?";
     connection.query(deleteMentor, req.body.id, (err) => {

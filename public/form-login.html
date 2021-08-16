@@ -1,0 +1,18 @@
+<!--Login for the mentor form-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Mentor Form Login | CRLSCourseConnect</title>
+        <script src="js/login.js"></script>
+        <script src="https://apis.google.com/js/api.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="237365754441-4033njub54s3qujgketiufaq6dfgi6ne.apps.googleusercontent.com">
+    </head>
+    <body>
+        <form action="/form" method="POST">
+            <div id="login" class="g-signin2" data-onsuccess="login"></div><br>
+        </form>
+        <div id="error"></div>
+    </body>
+</html>

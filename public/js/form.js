@@ -18,7 +18,7 @@ function submitForm() {
     } else {
         // HTTP request to send the search terms to the backend and store the results
         const xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "/form");
+        xhttp.open("POST", "/submit");
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(info));
 
