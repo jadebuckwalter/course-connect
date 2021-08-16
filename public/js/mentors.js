@@ -75,6 +75,8 @@ function displayMentors(mentors) {
         document.getElementById("mentor-results").style.display = "none";
     } else {
         mentors = randomize(mentors);
+        document.getElementById("mentor-results").style.display = "block";
+
         // Iterate through the mentors array and create a row for each mentor
         for (let i = 0; i < mentors[0].length; i++) {
             let row = document.createElement("tr");
