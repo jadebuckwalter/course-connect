@@ -1,0 +1,4 @@
+.course-list:hover {
+    text-decoration: line-through;
+    cursor: pointer;
+}

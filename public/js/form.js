@@ -1,5 +1,5 @@
 // Array to store list of courses that the mentor has taken
-const myCourses = [];
+let myCourses = [];
 
 // Function to submit the form
 function submitForm() {
@@ -41,8 +41,15 @@ function addCourse(name) {
     // If the course is not already there, add it to myCourses and display it on the page
     if (!repeat) {
         myCourses.push(name);
-        const course = document.createElement("p");
+        let course = document.createElement("p");
+        course.id = name;
+        course.className = "course-list";
         course.innerHTML = name;
+        course.addEventListener("click", () => {
+            myCourses = myCourses.filter(course => course !== name);
+            const element = document.getElementById(name);
+            element.parentNode.removeChild(element);
+        });
         document.getElementById("my-courses").append(course);
     }
 }
