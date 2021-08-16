@@ -67,12 +67,7 @@ function randomize(mentors) {
 
 // Display the list of mentors in a table
 function displayMentors(mentors) {
-    // Clear the mentor table
-    clear("mentor-table", "table-container", "table");
-
-    // Hide the homepage and show the mentor table
-    document.getElementById("home").style.display = "none";
-    document.getElementById("mentors").style.display = "block";
+    display("mentors");
     
     // Check to see if there are any results
     if (mentors[0][0] === "[] []") {
@@ -97,15 +92,36 @@ function displayMentors(mentors) {
     }
 }
 
-// Redirects back to the main page
-function backToSearch() {
-    // Hide the mentors page and show the home page
-    document.getElementById("mentors").style.display = "none";
-    document.getElementById("home").style.display = "block";
-    
-    // Clear the search box and the results
-    clear("result", "results-container", "div");
-    clear("search", "label", "input");
-    
-    initialize("home");
+// Display the page indicated by the parameters, and hide/clear the other pages
+function display(page) {
+    switch (page) {
+        case "home":
+            // Hide the mentors and resources pages, and show the home page
+            document.getElementById("mentors").style.display = "none";
+            document.getElementById("resources").style.display = "none";
+            document.getElementById("home").style.display = "block";
+
+            // Clear the search box and the results
+            clear("result", "results-container", "div");
+            clear("search", "label", "input");
+
+            initialize("home");
+            break;
+
+        case "mentors":
+            // Clear the mentor table
+            clear("mentor-table", "table-container", "table");
+
+            // Hide the homepage and resources page, and show the mentor table
+            document.getElementById("home").style.display = "none";
+            document.getElementById("resources").style.display = "none";
+            document.getElementById("mentors").style.display = "block";
+            break;
+
+        case "resources":
+            // Hide the homepage and mentors page, and show the resources page
+            document.getElementById("mentors").style.display = "none";
+            document.getElementById("home").style.display = "none";
+            document.getElementById("resources").style.display = "block";
+    }
 }
