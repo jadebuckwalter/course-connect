@@ -1,4 +1,8 @@
 .course-list:hover {
+    cursor: pointer;
+}
+
+.course-list-form:hover {
     text-decoration: line-through;
     cursor: pointer;
 }

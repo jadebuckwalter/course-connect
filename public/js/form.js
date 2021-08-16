@@ -43,7 +43,7 @@ function addCourse(name) {
         myCourses.push(name);
         let course = document.createElement("p");
         course.id = name;
-        course.className = "course-list";
+        course.className = "course-list-form";
         course.innerHTML = name;
         course.addEventListener("click", () => {
             myCourses = myCourses.filter(course => course !== name);

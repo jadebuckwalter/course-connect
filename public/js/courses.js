@@ -76,14 +76,18 @@ function displayResults(courses, page) {
     } else {
         // Iterate through the courses and create a button for each one
         for (let i = 0; i < courses.length; i++) {
-            let button = document.createElement("button");
-            let br = document.createElement("br");
-            button.id = "button" + i;
-            button.innerHTML = courses[i];
-            button.addEventListener("click", () => {
-                page === "home" ? searchMentors(button.innerHTML) : addCourse(button.innerHTML);
+            let name = courses[i];
+            let row = document.createElement("tr");
+            row.id = "row" + i;
+            let course = document.createElement("td");
+            course.id = "course" + i;
+            course.className = "course-list";
+            course.innerHTML = name;
+            course.addEventListener("click", () => {
+                page === "home" ? searchMentors(name) : addCourse(name);
             });
-            document.getElementById("result").append(button, br);
+            row.append(course);
+            document.getElementById("result").append(row);
         }
     }
 }
