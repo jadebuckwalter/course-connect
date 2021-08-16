@@ -18,22 +18,22 @@ connection.connect();
 
 // Direct to login first (will automatically redirect to home if user is logged in)
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/login.html");
+    res.sendFile(__dirname + "/public/html/login.html");
 });
 
 // Redirect to the home page if the user has logged in with correct credentials
 app.post("/", (req, res) => {
-    res.sendFile(__dirname + "/public/home.html");
+    res.sendFile(__dirname + "/public/html/home.html");
 });
 
 // Direct to the login page for the mentor form
 app.get("/form", (req, res) => {
-    res.sendFile(__dirname + "/public/form-login.html");
+    res.sendFile(__dirname + "/public/html/form-login.html");
 });
 
 // Redirect to the mentor form once the user has logged in
 app.post("/form", (req, res) => {
-    res.sendFile(__dirname + "/public/form.html");
+    res.sendFile(__dirname + "/public/html/form.html");
 });
 
 // Receive search results, query the database for them, and pass back a JSON with the results
