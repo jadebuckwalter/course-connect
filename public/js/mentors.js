@@ -24,20 +24,17 @@ function formatMentors(list) {
     const mentors = [];
     const names = [];
     const emails = [];
-
-    // String of characters that separates each mentor in the string
-    const separator = "{";
     
     // Index of the first course
     let index = 1;
 
     // Iterate through the string and add each mentor to the array
-    while (index < list.lastIndexOf(separator)) {
+    while (index < list.lastIndexOf("{")) {
         names.push(list.substring(list.indexOf("\"first\"", index) + 9, list.indexOf("\"last\"", index) - 2) + " " +
                     list.substring(list.indexOf("\"last\"", index) + 8, list.indexOf("\"email\"", index) - 2));
-        emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf(separator, index + 1) - 3));
+        emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf("{", index + 1) - 3));
 
-        index = list.indexOf(separator, index + 1);
+        index = list.indexOf("{", index + 1);
     }
 
     // Add the last mentor
