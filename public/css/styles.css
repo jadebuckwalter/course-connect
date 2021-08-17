@@ -87,10 +87,6 @@ p, label, input, table, td {
     border-radius: 5px;
 }
 
-#result {
-    width: 500px;
-}
-
 .course-list:hover {
     background-color: #eeeeee;
     cursor: pointer;
@@ -101,7 +97,18 @@ p, label, input, table, td {
     cursor: pointer;
 }
 
+.left-col {
+    border-right: none;
+}
+
+.right-col {
+    border-left: none;
+    text-align: right;
+}
+
 table {
+    width: 500px;
+    table-layout: auto;
     border-collapse: collapse;
 }
 

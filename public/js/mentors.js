@@ -82,7 +82,9 @@ function displayMentors(mentors) {
             let row = document.createElement("tr");
             row.id = "row" + i;
             let name = document.createElement("td");
+            name.className = "left-col";
             let email = document.createElement("td");
+            email.className = "right-col";
             let link = document.createElement("a");
             link.href = "mailto:" + mentors[1][i];
             link.innerHTML = mentors[1][i];
