@@ -31,6 +31,32 @@ h2 {
     text-align: center;
 }
 
+button {
+    font-family: "Lato-Regular";
+    font-size: 20px;
+    background-color: var(--orange);
+    color: black;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    padding: 9px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#title {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+#nav-buttons {
+    position: absolute;
+    right: 10px;
+    top: 90px;
+}
+
 .course-list:hover {
     background-color: #eeeeee;
     cursor: pointer;

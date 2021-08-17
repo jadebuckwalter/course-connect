@@ -9,23 +9,23 @@
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body onload="initialize('home');">
-        <h1>CRLS Course Connect</h1>
+        <h1 id="title" onclick="display('home')">CRLS Course Connect</h1>
+        <div id="nav-buttons">
+            <button onclick="display('home')">Home</button>
+            <button onclick="display('resources')">Resources</button>
+        </div>
         <div id="container">
             <div id="home" style="display: block">
                 <label id="label">Search for courses: <input id="search"></label>
-                <button onclick="searchCourses('home');">Submit</button><br><br>
+                <button onclick="searchCourses('home')">Submit</button><br><br>
                 <div id="results-container">
                     <table id="result"></table>
-                </div><br><br>
-                <button onclick="display('resources')">Resources</button>
+                </div>
             </div>
             <div id="resources" style="display: none">
-                <h2>Resources</h2><br>
-                <button onclick="display('home');">Back to search</button><br><br>
+                <h2>Resources</h2>
             </div>
             <div id="mentors" style="display: none">
-                <button onclick="display('home');">Back to search</button><br><br>
-                <button onclick="display('resources')">Resources</button><br><br>
                 <div id="table-container">
                     <p id="mentor-results"></p>
                     <table id="mentor-table"></table>
