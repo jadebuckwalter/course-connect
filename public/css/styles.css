@@ -1,3 +1,36 @@
+@font-face {
+    font-family: "BubblegumSans-Regular";
+    src: url("../fonts/Bubblegum_Sans/BubblegumSans-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("../fonts/Lato/Lato-Regular.ttf");
+    font-display: swap;
+}
+
+/* Color scheme */
+body {
+    --magenta: #b4436c;
+    --teal: #00a693;
+    --orange: #f6713c;
+}
+
+h1 {
+    font-family: "BubblegumSans-Regular";
+    font-size: 75px;
+    color: var(--teal);
+    text-align: center;
+}
+
+h2 {
+    font-family: "BubblegumSans-Regular";
+    font-size: 50px;
+    color: var(--magenta);
+    text-align: center;
+}
+
 .course-list:hover {
     background-color: #eeeeee;
     cursor: pointer;

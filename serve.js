@@ -95,5 +95,5 @@ app.post("/submit", (req, res) => {
 
 // Run the app on the server
 app.listen(port, () => {
-    console.log(`CRLSCourseConnect listening at http://localhost:${port}`);
+    console.log(`CRLS Course Connect listening at http://localhost:${port}`);
 });
