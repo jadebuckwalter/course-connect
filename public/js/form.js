@@ -46,6 +46,12 @@ function addCourse(name) {
         }
     });
 
+    // Delete the starter text if the first course is being added
+    const starter = document.getElementById("starter");
+    if (myCourses.length === 0 && starter !== null) {
+        starter.parentNode.removeChild(starter);
+    }
+
     // If the course is not already there, add it to myCourses and display it on the page
     if (!repeat) {
         myCourses.push(name);
