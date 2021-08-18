@@ -41,7 +41,7 @@ function addCourse(name) {
     // If the course is not already there, add it to myCourses and display it on the page
     if (!repeat) {
         myCourses.push(name);
-        let course = document.createElement("p");
+        let course = document.createElement("li");
         course.id = name;
         course.className = "course-list-form";
         course.innerHTML = name;
@@ -56,6 +56,6 @@ function addCourse(name) {
 
 // Call the clear function on the "My Courses" list, and reset the array
 function clearCourses() {
-    clear("my-courses", "courses-container", "div");
+    clear("my-courses", "courses-container", "ul");
     myCourses = [];
 }

@@ -34,6 +34,13 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-family: "BubblegumSans-Regular";
+    font-size: 50px;
+    color: var(--magenta);
+    margin-bottom: -5px;
+}
+
 button {
     font-family: "Lato-Regular";
     font-size: 20px;
@@ -52,7 +59,7 @@ button:hover {
     background-color: var(--orange1);
 }
 
-p, label, input, table, td {
+p, label, input, table, td, ul {
     font-family: "Lato-Regular";
     font-size: 20px;
 }
@@ -133,4 +140,25 @@ td {
     padding: 10px;
     background-color: white;
     border: 1px solid black;
+}
+
+li {
+    padding-bottom: 10px;
+}
+
+.form-input {
+    width: 300px;
+}
+
+#form-container {
+    display: flex;
+}
+
+#search-container {
+    width: 550px;
+}
+
+#courses-container {
+    flex: 1;
+    margin-top: -55px;
 }

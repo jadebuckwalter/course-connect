@@ -15,27 +15,40 @@
             a mentor for CRLS Course Connect. Please fill out the form below.
         </p><br>
 
-        <label>Student ID: <input type="number" id="student-id"></label><br>
-        <label>First/Preferred name: <input type="text" id="first-name"></label><br>
-        <label>Last name: <input type="text" id="last-name"></label><br>
-        <label>CPSD email: <input type="email" id="email"></label><br>
+        <label>Student ID: <input type="number" id="student-id" class="form-input"></label><br><br>
+        <label>First/Preferred name: <input type="text" id="first-name" class="form-input"></label><br><br>
+        <label>Last name: <input type="text" id="last-name" class="form-input"></label><br><br>
+        <label>CPSD email: <input type="email" id="email" class="form-input"></label><br><br>
 
         <p>
-            Think about the courses you have taken during your time at CRLS.
-            Which ones have been the most memorable? For which courses would 
-            you be willing to share your experience with other students who 
-            are considering signing up for the course?
+            The purpose of this form is to enter the names of courses that you 
+            have taken, so that students can email you to ask questions about
+            these courses.
+        </p>
+        <p>
+            To find a list of courses that you have taken at CRLS, log in to 
+            <a href="https://aspen.cpsd.us" target="_blank">Aspen</a>, go to 
+            "My Info", and click on "Transcript." Click on the funnel button 
+            and select "All Records." Enter as many or as few courses as you 
+            like; just know that you should feel comfortable answering 
+            questions about any course that you enter.
         </p>
         <p>
             Search for courses below, and add them to your list of courses.
-            When you're done, hit submit.
+            If you need to remove any of the courses on your list, click on
+            the name of the course. When you're done, hit submit.
         </p>
-        <label>Search for courses: <input type="text" id="search"></label>
-        <button onclick="searchCourses('form')">Submit</button><br><br>
-        <div id="results-container"><div id="result"></div></div><br><br>
-        
-        <h2>Courses I've Taken</h2>
-        <div id="courses-container"><div id="my-courses"></div></div><br>
+        <div id="form-container">
+            <div id="search-container">
+                <input type="text" id="search">
+                <button onclick="searchCourses('form')">Submit</button><br><br>
+                <div id="results-container"><div id="result"></div></div><br><br>
+            </div>
+            <div id="courses-container">
+                <h3>Courses I've Taken</h3>
+                <ul id="my-courses"></ul>
+            </div>
+        </div><br>
         <button id="clear-courses" onclick="clearCourses()">Clear courses</button><br><br>
         <button onclick="submitForm()">Submit</button><br><br>
         <div id="error" style="display: none">Please fill out all of the fields.</div>
