@@ -75,13 +75,19 @@ p, label, input, table, td, ul {
     position: relative;
     left: 0px;
     right: 0px;
+    top: -20px;
     cursor: pointer;
 }
 
 #nav-buttons {
     position: absolute;
     right: 10px;
-    top: 75px;
+    top: 10px;
+}
+
+.nav-button {
+    width: 120px;
+    margin-bottom: 5px;
 }
 
 #container {
