@@ -57,6 +57,13 @@ p, label, input, table, td {
     font-size: 20px;
 }
 
+#logo {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
 #title {
     position: relative;
     left: 0px;
