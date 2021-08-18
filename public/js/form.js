@@ -23,7 +23,10 @@ function submitForm() {
         xhttp.send(JSON.stringify(info));
 
         // Display a "submitted" message
-        document.body.innerHTML = "Success! Your information has been submitted.";
+        document.body.innerHTML = "";
+        const submitted = document.createElement("p");
+        submitted.innerHTML = "Success! The form was submitted.";
+        document.body.append(submitted);
     }
 }
 
