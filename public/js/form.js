@@ -53,9 +53,3 @@ function addCourse(name) {
         document.getElementById("my-courses").append(course);
     }
 }
-
-// Call the clear function on the "My Courses" list, and reset the array
-function clearCourses() {
-    clear("my-courses", "courses-container", "ul");
-    myCourses = [];
-}
