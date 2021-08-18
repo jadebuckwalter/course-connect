@@ -87,6 +87,16 @@ p, label, input, table, td {
     border-radius: 5px;
 }
 
+#mentor-results {
+    text-align: center;
+}
+
+#table-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
 .course-list:hover {
     background-color: #eeeeee;
     cursor: pointer;

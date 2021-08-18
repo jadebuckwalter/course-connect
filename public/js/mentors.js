@@ -71,13 +71,10 @@ function displayMentors(mentors) {
     
     // Check to see if there are any results
     if (mentors[0][0] === "[] []") {
-        document.getElementById("mentor-table").innerHTML = "No results";
-        document.getElementById("mentor-results").style.display = "none";
+        document.getElementById("mentor-results").innerHTML = "No results";
     } else {
+        // Randomize, then iterate through the mentors array and create a row for each mentor
         mentors = randomize(mentors);
-        document.getElementById("mentor-results").style.display = "block";
-
-        // Iterate through the mentors array and create a row for each mentor
         for (let i = 0; i < mentors[0].length; i++) {
             let row = document.createElement("tr");
             row.id = "row" + i;
