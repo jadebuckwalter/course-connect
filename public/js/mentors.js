@@ -4,7 +4,7 @@ function searchMentors(course) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
-            displayMentors(formatMentors(xhttp.responseText));
+            displayMentors(formatMentors(xhttp.responseText), course);
         }
     }
 
@@ -66,12 +66,12 @@ function randomize(mentors) {
 }
 
 // Display the list of mentors in a table
-function displayMentors(mentors) {
+function displayMentors(mentors, course) {
     display("mentors");
     
     // Check to see if there are any results
     if (mentors[0][0] === "[] []") {
-        document.getElementById("mentor-results").innerHTML = "No results";
+        document.getElementById("mentor-results").innerHTML = "No mentors have taken " + course + ".";
     } else {
         // Randomize, then iterate through the mentors array and create a row for each mentor
         mentors = randomize(mentors);
