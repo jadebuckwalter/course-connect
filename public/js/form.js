@@ -27,6 +27,14 @@ function submitForm() {
     }
 }
 
+// Create a pop-up window to ensure that the user wants to submit the form.
+function confirmSubmission() {
+    let submit = confirm("Are you sure you want to submit?");
+    if (submit) {
+        submitForm();
+    }
+}
+
 // Add a course to the "My Courses" list if it is not already there
 // name (string): the name of the course, as in the database
 function addCourse(name) {
