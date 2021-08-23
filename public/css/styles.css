@@ -107,6 +107,30 @@ p, label, input, table, td, ul {
     border-radius: 5px;
 }
 
+#resources-header {
+    margin-top: -50px;
+}
+
+#resources {
+    width: 100%;
+}
+
+.include {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.resource {
+    text-align: center;
+    cursor: pointer;
+}
+
+.resource-text {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 #mentor-results {
     text-align: center;
 }

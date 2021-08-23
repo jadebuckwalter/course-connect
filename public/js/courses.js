@@ -130,3 +130,9 @@ function abbreviations(word) {
     }
     return word;
 }
+
+// Hide and show the different resources on the resources page
+function toggleDisplay(id) {
+    document.getElementById(id).style.display === "block" ? 
+    document.getElementById(id).style.display = "none" : document.getElementById(id).style.display = "block";
+}
