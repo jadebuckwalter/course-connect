@@ -14,7 +14,7 @@ function submitForm() {
 
     // Check for user input
     if (info.id === "" || info.first === "" || info.last === "" || info.email === "" || info.courses.length === 0) {
-        document.getElementById("error").style.display = "block";
+        document.getElementById("submit-error").style.display = "block";
     } else {
         // HTTP request to send the search terms to the backend and store the results
         const xhttp = new XMLHttpRequest();

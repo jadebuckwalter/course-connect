@@ -6,13 +6,13 @@
         <title>Mentor Form Login | CRLS Course Connect</title>
         <script src="js/login.js"></script>
         <script src="https://apis.google.com/js/api.js" async defer></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         <link rel="stylesheet" href="../css/styles.css">
         <meta name="google-signin-client_id" content="237365754441-4033njub54s3qujgketiufaq6dfgi6ne.apps.googleusercontent.com">
     </head>
     <body>
         <form action="/form" method="POST">
-            <div id="login" class="g-signin2" data-onsuccess="login"></div><br>
+            <div id="login-google" class="google g-signin2"></div><br>
         </form>
         <p id="error"></p>
     </body>

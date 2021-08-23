@@ -193,6 +193,21 @@ li {
     margin-top: -55px;
 }
 
-#error {
+#submit-error {
     color: red;
+}
+
+#error {
+    text-align: center;
+    color: red;
+}
+
+#login-prompt {
+    text-align: center;
+}
+
+#login-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
