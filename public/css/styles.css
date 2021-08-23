@@ -23,7 +23,7 @@ body {
 h1 {
     font-family: "BubblegumSans-Regular";
     font-size: 75px;
-    color: var(--teal);
+    color: var(--magenta);
     text-align: center;
 }
 
@@ -73,6 +73,7 @@ p, label, input, table, td, ul {
 
 #title {
     position: relative;
+    color: var(--teal);
     left: 0px;
     right: 0px;
     top: -20px;
