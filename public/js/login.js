@@ -15,7 +15,7 @@ function login(googleUser) {
         document.getElementById("login-google").parentNode.submit();
     } else {
         logOut();
-        document.getElementById("error").innerHTML = "Please log in with your CPSD Gmail account.";
+        document.getElementById("error").innerHTML = "You must sign in with your CPSD Google Account.";
     }
 }
 

@@ -23,7 +23,7 @@ body {
 h1 {
     font-family: "BubblegumSans-Regular";
     font-size: 85px;
-    color: var(--magenta);
+    color: var(--teal);
     text-align: center;
 }
 
@@ -73,7 +73,6 @@ p, label, input, table, td, ul {
 
 #title {
     position: relative;
-    color: var(--teal);
     left: 0px;
     right: 0px;
     top: -35px;
@@ -228,12 +227,27 @@ li {
     color: red;
 }
 
-#login-prompt {
+#login-prompt, #error {
+    width: 240px;
     text-align: center;
+    margin: auto;
 }
 
 #login-button {
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+#login-container {
+    position: relative;
+    display: flex;
+    width: 576px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#login-prompt-button {
+    flex: 1;
 }
