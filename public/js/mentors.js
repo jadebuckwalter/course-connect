@@ -124,5 +124,11 @@ function display(page) {
             document.getElementById("mentors").style.display = "none";
             document.getElementById("home").style.display = "none";
             document.getElementById("resources").style.display = "block";
+
+            // Close all of the divs
+            const resources = document.getElementsByClassName("opened-resource");
+            for (let i = 0; i < resources.length; i++) {
+                resources[i].style.display = "none";
+            }
     }
 }
