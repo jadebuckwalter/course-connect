@@ -104,31 +104,6 @@ p, label, input, table, td, ul {
     margin-bottom: 5px;
 }
 
-@media screen and (max-width: 992px) {
-    #nav-buttons {
-        position: relative;
-        margin-top: -70px;
-        margin-bottom: 21px;
-        left: 0px;
-        right: 0px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .nav-button {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    #logo {
-        display: none;
-    }
-
-    #resources {
-        margin-top: 50px;
-    }
-}
-
 #container {
     position: relative;
     display: flex;
@@ -174,7 +149,7 @@ p, label, input, table, td, ul {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     padding: 10px;
-    width: 768px;
+    width: 60%;
     cursor: pointer;
 }
 
@@ -194,7 +169,7 @@ p, label, input, table, td, ul {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     padding: 10px;
-    width: 768px;
+    width: 60%;
 }
 
 #about-ccc {
@@ -306,4 +281,33 @@ li {
 .login-links {
     font-family: "Lato-Regular";
     font-size: 14px;
+}
+
+@media screen and (max-width: 992px) {
+    #nav-buttons {
+        position: relative;
+        margin-top: -70px;
+        margin-bottom: 21px;
+        left: 0px;
+        right: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-button {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #resources {
+        margin-top: 50px;
+    }
+
+    .resource, .opened-resource {
+        width: 80%;
+    }
 }
