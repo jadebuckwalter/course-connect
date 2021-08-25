@@ -281,7 +281,12 @@ li {
     justify-content: center;
     align-items: center;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 @media screen and (max-width: 992px) {
@@ -300,7 +305,7 @@ li {
         margin-right: 5px;
     }
 
-    #logo {
+    #logo, #login-image-container {
         display: none;
     }
 
@@ -308,7 +313,12 @@ li {
         margin-top: 50px;
     }
 
-    .resource, .opened-resource {
+    .resource, .opened-resource, #login-box {
         width: 80%;
+    }
+
+    #login-container {
+        width: auto;
+        height: auto;
     }
 }
