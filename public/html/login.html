@@ -10,22 +10,26 @@
         <link rel="stylesheet" href="../css/styles.css">
         <meta name="google-signin-client_id" content="237365754441-4033njub54s3qujgketiufaq6dfgi6ne.apps.googleusercontent.com">
     </head>
-    <body>
-        <h2>Welcome to CRLS Course Connect!</h2>
-        <div id="login-container">
-            <img src="../images/logo.png" width="200px">
-            <div id="login-prompt-button">
-                <p id="login-prompt">Sign in with your CPSD Google Account</p><br>
-                <div id="login-button">
-                    <form action="/" method="POST">
-                        <div id="login-google" class="google g-signin2"></div><br>
-                    </form>
+    <body style="background-color: #00a693">
+        <div id="login-box">
+            <div id="flex-box">
+                <h2>Welcome to CRLS Course Connect!</h2>
+                <div id="login-container">
+                    <img src="../images/logo.png" width="200px">
+                    <div id="login-prompt-button">
+                        <p id="login-prompt">Sign in with your CPSD Google Account</p><br>
+                        <div id="login-button">
+                            <form action="/" method="POST">
+                                <div id="login-google" class="google g-signin2"></div><br>
+                            </form>
+                        </div>
+                        <p id="error"></p>
+                    </div>
                 </div>
-                <p id="error"></p>
+                <div id="links-container">
+                    <a class="login-links" href="https://forms.gle/gYLdRWyhmWSxrkmL8" target="_blank">Issues/Feature Requests</a>
+                </div>
             </div>
-        </div>
-        <div id="links-container">
-            <a class="login-links" href="https://forms.gle/gYLdRWyhmWSxrkmL8" target="_blank">Issues/Feature Requests</a>
         </div>
     </body>
 </html>

@@ -37,6 +37,7 @@ h2 {
     font-size: 50px;
     color: var(--magenta);
     text-align: center;
+    margin-top: -20px;
 }
 
 h3 {
@@ -281,6 +282,17 @@ li {
 .login-links {
     font-family: "Lato-Regular";
     font-size: 14px;
+}
+
+#login-box {
+    background-color: #f5f5f5;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 20px;
 }
 
 @media screen and (max-width: 992px) {
