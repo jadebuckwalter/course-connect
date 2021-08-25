@@ -273,17 +273,6 @@ li {
     flex: 1;
 }
 
-#links-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.login-links {
-    font-family: "Lato-Regular";
-    font-size: 14px;
-}
-
 #login-box {
     background-color: #f5f5f5;
     width: 800px;
