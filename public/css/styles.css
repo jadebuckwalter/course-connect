@@ -17,6 +17,8 @@ body {
     
     --magenta: #b4436c;
     --magenta-dark: #772c48;
+    --magenta-light: #f4e1e8;
+    --magenta-light-2: #e9c3d1;
     --teal: #00a693;
     --teal-dark: #005248;
     --orange: #f77f50;
@@ -167,7 +169,7 @@ p, label, input, table, td, ul {
     font-size: 20px;
     text-align: center;
     margin: auto;
-    background-color: white;
+    background-color: var(--magenta-light);
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -177,7 +179,7 @@ p, label, input, table, td, ul {
 }
 
 .resource:hover {
-    background-color: var(--light-gray);
+    background-color: var(--magenta-light-2);
 }
 
 .resource-text {

@@ -10,6 +10,8 @@ Primary Colors:
  - #f77f50
 
 Secondary Colors:
+ - #f4e1e8
+ - #e9c3d1
  - #772c48
  - #005248
  - #f56329
