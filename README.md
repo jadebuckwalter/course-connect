@@ -13,6 +13,8 @@ Secondary Colors:
  - #f4e1e8
  - #e9c3d1
  - #772c48
+ - #b2e6e0
+ - #74d2c7
  - #005248
  - #f56329
 ```

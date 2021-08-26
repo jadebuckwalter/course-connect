@@ -26,75 +26,79 @@
             </div>
             <div id="resources" style="display: none">
                 <h2 id="resources-header">Resources</h2>
-                <div class="resource" id="about-ccc" onclick="toggleDisplay('about')">About CRLS Course Connect</div>
-                <div class="opened-resource" id="about" style="display: none">
-                    <p class="resource-text">
-                        CRLS Course Connect is a website where CRLS students can 
-                        search for courses they are considering signing up for 
-                        and get more information by connecting with mentors who 
-                        have taken those courses.
-                    </p>
+                <div id="resources-container">
+                    <div id="links-container">
+                        <div id="link1" class="resource-links" value="New Tab" onclick="window.open('https://secure1.cpsd.us/course_catalog/')">CRLS Course Catalog</div>
+                        <div id="link2" class="resource-links" value="New Tab" onclick="window.open('https://forms.gle/gYLdRWyhmWSxrkmL8')">Issues/Feature Requests</div>
+                    </div>
+                    <div class="resource" id="about-ccc" onclick="toggleDisplay('about')">About CRLS Course Connect</div>
+                    <div class="opened-resource" id="about" style="display: none">
+                        <p class="resource-text">
+                            CRLS Course Connect is a website where CRLS students can 
+                            search for courses they are considering signing up for 
+                            and get more information by connecting with mentors who 
+                            have taken those courses.
+                        </p>
+                    </div>
+                    <div class="resource" onclick="toggleDisplay('email')">Writing an email to a mentor</div>
+                    <div class="opened-resource" id="email" style="display: none">
+                        <p class="resource-text">
+                            When writing an email to a mentor, here are some things 
+                            you might want to include:
+                        </p>
+                        <ul>
+                            <li class="include">
+                                Start by introducing yourself; say your name
+                                and what grade you're in. If you already know your mentor 
+                                through a particular class, sport, or extracurricular,
+                                feel free to introduce yourself this way as well.
+                            </li>
+                            <li class="include">
+                                Tell your mentor which course you are considering, and 
+                                ask your questions.
+                            </li>
+                            <li class="include">
+                                Thank your mentor. They should write back to you within
+                                a few days.
+                            </li>
+                        </ul>
+                        <p class="resource-text">Your final email may look something like this:</p>
+                        <p class="include">
+                            Hi [mentor name], <br><br> My name is [your name], and I am
+                            in [your grade]. I am thinking about signing up for [course name]
+                            next year, but I am wondering [ask your questions]. <br><br> Thank you!
+                            <br>[your name]
+                        </p>
+                    </div>
+                    <div class="resource" onclick="toggleDisplay('questions')">What types of questions should I ask?</div>
+                    <div class="opened-resource" id="questions" style="display: none">
+                        <p class="resource-text">
+                            You can ask your mentor all sorts of questions, but they may be able to 
+                            answer some questions better than others. Here are some good questions 
+                            to get you started:
+                        </p>
+                        <ul>
+                            <li class="include">
+                                How heavy is the course workload? How many hours per week did you 
+                                spend on homework and/or studying for the course?
+                            </li>
+                            <li class="include">
+                                What types of assignments did you have to complete for the course? 
+                                Were there a lot of projects? Essays? Tests? Was it a discussion-based 
+                                class?
+                            </li>
+                            <li class="include">
+                                What did you enjoy most, or least, about the class? Would you recommend
+                                it to someone like me?
+                            </li>
+                        </ul>
+                        <p class="resource-text">
+                            Please refrain from asking questions about individual teachers. 
+                            When you sign up for the course, you don't get to choose the teacher, and 
+                            your mentor might not even have the same teacher as you. 
+                        </p>
+                    </div>
                 </div>
-                <div class="resource" value="New Tab" onclick="window.open('https://secure1.cpsd.us/course_catalog/')">CRLS Course Catalog</div>
-                <div class="resource" onclick="toggleDisplay('email')">Writing an email to a mentor</div>
-                <div class="opened-resource" id="email" style="display: none">
-                    <p class="resource-text">
-                        When writing an email to a mentor, here are some things 
-                        you might want to include:
-                    </p>
-                    <ul>
-                        <li class="include">
-                            Start by introducing yourself; say your name
-                            and what grade you're in. If you already know your mentor 
-                            through a particular class, sport, or extracurricular,
-                            feel free to introduce yourself this way as well.
-                        </li>
-                        <li class="include">
-                            Tell your mentor which course you are considering, and 
-                            ask your questions.
-                        </li>
-                        <li class="include">
-                            Thank your mentor. They should write back to you within
-                            a few days.
-                        </li>
-                    </ul>
-                    <p class="resource-text">Your final email may look something like this:</p>
-                    <p class="include">
-                        Hi [mentor name], <br><br> My name is [your name], and I am
-                        in [your grade]. I am thinking about signing up for [course name]
-                        next year, but I am wondering [ask your questions]. <br><br> Thank you!
-                        <br>[your name]
-                    </p>
-                </div>
-                <div class="resource" onclick="toggleDisplay('questions')">What types of questions should I ask?</div>
-                <div class="opened-resource" id="questions" style="display: none">
-                    <p class="resource-text">
-                        You can ask your mentor all sorts of questions, but they may be able to 
-                        answer some questions better than others. Here are some good questions 
-                        to get you started:
-                    </p>
-                    <ul>
-                        <li class="include">
-                            How heavy is the course workload? How many hours per week did you 
-                            spend on homework and/or studying for the course?
-                        </li>
-                        <li class="include">
-                            What types of assignments did you have to complete for the course? 
-                            Were there a lot of projects? Essays? Tests? Was it a discussion-based 
-                            class?
-                        </li>
-                        <li class="include">
-                            What did you enjoy most, or least, about the class? Would you recommend
-                            it to someone like me?
-                        </li>
-                    </ul>
-                    <p class="resource-text">
-                        Please refrain from asking questions about individual teachers. 
-                        When you sign up for the course, you don't get to choose the teacher, and 
-                        your mentor might not even have the same teacher as you. 
-                    </p>
-                </div>
-                <div class="resource" value="New Tab" onclick="window.open('https://forms.gle/gYLdRWyhmWSxrkmL8')">Issues/Feature Requests</div>
             </div>
             <div id="mentors" style="display: none">
                 <p id="mentor-results"></p>

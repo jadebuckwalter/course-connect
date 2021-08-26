@@ -21,6 +21,8 @@ body {
     --magenta-light-2: #e9c3d1;
     --teal: #00a693;
     --teal-dark: #005248;
+    --teal-light: #b2e6e0;
+    --teal-light-2: #74d2c7;
     --orange: #f77f50;
     --orange1: #f56329;
 }
@@ -122,6 +124,11 @@ p, label, input, table, td, ul {
     border-radius: 5px;
 }
 
+#resources-container {
+    width: 60%;
+    margin: auto;
+}
+
 #resources-header {
     margin-top: -50px;
 }
@@ -150,7 +157,6 @@ p, label, input, table, td, ul {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     padding: 10px;
-    width: 60%;
     cursor: pointer;
 }
 
@@ -170,7 +176,39 @@ p, label, input, table, td, ul {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     padding: 10px;
-    width: 60%;
+}
+
+#links-container {
+    display: flex;
+}
+
+.resource-links {
+    font-family: "Lato-Regular";
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    background-color: var(--teal-light);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.resource-links:hover {
+    background-color: var(--teal-light-2);
+}
+
+#link1 {
+    margin-right: 4px;
+}
+
+#link2 {
+    margin-left: 4px;
 }
 
 #about-ccc {
@@ -317,8 +355,12 @@ li {
         margin-top: 50px;
     }
 
-    .resource, .opened-resource, #login-box {
+    #resources-container, #login-box {
         width: 80%;
+    }
+
+    .resource-links {
+        height: 2.5em;
     }
 
     #login-container {
