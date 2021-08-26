@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 const mysql = require("mysql");
 const port = process.env.PORT || 3000;
 
@@ -9,10 +11,10 @@ app.use(express.static(__dirname + "/public"));
 
 // Connect to the MySQL database
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "vwV6bWuEfZoUyqAg3ff9!UJy",
-    database: "courseconnect"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 connection.connect();
 

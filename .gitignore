@@ -1,0 +1,5 @@
+# Ignore sensitive information
+.env
+
+# Ignore files created by MacOS
+.DS_store
