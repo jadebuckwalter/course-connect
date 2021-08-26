@@ -230,6 +230,10 @@ li {
     display: flex;
 }
 
+#mentor-form-heading {
+    margin-top: 50px;
+}
+
 #search-container {
     width: 550px;
 }

@@ -11,9 +11,15 @@
         <meta name="google-signin-client_id" content="237365754441-4033njub54s3qujgketiufaq6dfgi6ne.apps.googleusercontent.com">
     </head>
     <body>
-        <form action="/form" method="POST">
-            <div id="login-google" class="google g-signin2"></div><br>
-        </form>
-        <p id="error"></p>
+        <h2 id="mentor-form-heading">CRLS Course Connect Mentor Form</h2>
+        <div id="login-prompt-button">
+            <p id="login-prompt">Sign in with your CPSD Google Account</p><br>
+            <div id="login-button">
+                <form action="/form" method="POST">
+                    <div id="login-google" class="google g-signin2"></div><br>
+                </form>
+            </div>
+            <p id="error"></p>
+        </div>
     </body>
 </html>
