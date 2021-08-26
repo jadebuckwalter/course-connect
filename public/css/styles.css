@@ -42,13 +42,6 @@ h2 {
     margin-top: -20px;
 }
 
-h3 {
-    font-family: "BubblegumSans-Regular";
-    font-size: 50px;
-    color: var(--magenta);
-    margin-bottom: -5px;
-}
-
 button {
     font-family: "Lato-Regular";
     font-size: 20px;
@@ -76,10 +69,76 @@ a:visited {
     color: var(--magenta-dark);
 }
 
+table {
+    width: 500px;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+li {
+    padding-bottom: 10px;
+}
+
 p, label, input, table, td, ul {
     font-family: "Lato-Regular";
     font-size: 20px;
 }
+
+/* Login page */
+
+#login-box {
+    background-color: #f5f5f5;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#login-container {
+    position: relative;
+    display: flex;
+    width: 576px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#login-prompt-button {
+    flex: 1;
+}
+
+#login-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#login-prompt, #error {
+    width: 240px;
+    text-align: center;
+    margin: auto;
+}
+
+#error {
+    text-align: center;
+    color: red;
+}
+
+/* Home/search page */
 
 #logo {
     position: absolute;
@@ -124,14 +183,12 @@ p, label, input, table, td, ul {
     border-radius: 5px;
 }
 
-#resources-container {
-    width: 60%;
-    margin: auto;
+.course-list:hover {
+    background-color: var(--light-gray);
+    cursor: pointer;
 }
 
-#resources-header {
-    margin-top: -50px;
-}
+/* Resources page */
 
 #resources {
     width: 100%;
@@ -141,41 +198,13 @@ p, label, input, table, td, ul {
     align-items: center;
 }
 
-.include {
-    margin-left: 10%;
-    margin-right: 10%;
-    text-align: left;
+#resources-header {
+    margin-top: -50px;
 }
 
-.resource {
-    font-family: "Lato-Regular";
-    font-size: 20px;
-    text-align: center;
+#resources-container {
+    width: 60%;
     margin: auto;
-    background-color: var(--magenta-light);
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.resource:hover {
-    background-color: var(--magenta-light-2);
-}
-
-.resource-text {
-    text-align: center;
-}
-
-.opened-resource {
-    text-align: center;
-    margin: auto;
-    background-color: white;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 10px;
 }
 
 #links-container {
@@ -211,9 +240,48 @@ p, label, input, table, td, ul {
     margin-left: 4px;
 }
 
+.resource {
+    font-family: "Lato-Regular";
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    background-color: var(--magenta-light);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resource:hover {
+    background-color: var(--magenta-light-2);
+}
+
 #about-ccc {
     border-top: 1px solid black;
 }
+
+.opened-resource {
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.resource-text {
+    text-align: center;
+}
+
+.include {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+}
+
+/* Mentor page */
 
 #mentor-results {
     text-align: center;
@@ -225,16 +293,6 @@ p, label, input, table, td, ul {
     justify-content: center;
 }
 
-.course-list:hover {
-    background-color: var(--light-gray);
-    cursor: pointer;
-}
-
-.course-list-form:hover {
-    text-decoration: line-through;
-    cursor: pointer;
-}
-
 .left-col {
     border-right: none;
 }
@@ -244,20 +302,10 @@ p, label, input, table, td, ul {
     text-align: right;
 }
 
-table {
-    width: 500px;
-    table-layout: auto;
-    border-collapse: collapse;
-}
+/* Mentor form */
 
-td {
-    padding: 10px;
-    background-color: white;
-    border: 1px solid black;
-}
-
-li {
-    padding-bottom: 10px;
+#mentor-form-heading {
+    margin-top: 50px;
 }
 
 .form-input {
@@ -268,12 +316,13 @@ li {
     display: flex;
 }
 
-#mentor-form-heading {
-    margin-top: 50px;
-}
-
 #search-container {
     width: 550px;
+}
+
+.course-list-form:hover {
+    text-decoration: line-through;
+    cursor: pointer;
 }
 
 #courses-container {
@@ -281,54 +330,14 @@ li {
     margin-top: -55px;
 }
 
+#courses-taken {
+    margin-top: 50px;
+    margin-bottom: -5px;
+    text-align: left;
+}
+
 #submit-error {
     color: red;
-}
-
-#error {
-    text-align: center;
-    color: red;
-}
-
-#login-prompt, #error {
-    width: 240px;
-    text-align: center;
-    margin: auto;
-}
-
-#login-button {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-#login-container {
-    position: relative;
-    display: flex;
-    width: 576px;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-
-#login-prompt-button {
-    flex: 1;
-}
-
-#login-box {
-    background-color: #f5f5f5;
-    width: 800px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    border-radius: 50px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 @media screen and (max-width: 992px) {
