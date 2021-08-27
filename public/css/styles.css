@@ -125,10 +125,15 @@ p, label, input, table, td, ul {
     flex: 1;
 }
 
-#login-button {
+#login-button, #cps-logo {
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+#cps-logo {
+    padding-top: 20px;
+    margin: auto;
 }
 
 #login-prompt, #error {

@@ -3,3 +3,6 @@
 
 # Ignore files created by MacOS
 .DS_store
+
+# Ignore the CPSD logo
+public/images/district-logo-cps.png
