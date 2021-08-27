@@ -117,6 +117,7 @@ function abbreviations(word) {
         "asl": "American Sign Language",
         "cs": "computer science",
         "e&m": "Electricity and Magnetism",
+        "ela": "English",
         "precalc": "Pre-Calculus",
         "rsta": "TC",
         "stats": "Statistics",
