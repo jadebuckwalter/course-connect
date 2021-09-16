@@ -72,9 +72,11 @@ function displayMentors(mentors, course) {
     // Check to see if there are any results
     if (mentors[0][0] === "[] []") {
         document.getElementById("mentor-results").innerHTML = "No mentors have taken " + course + ".";
+        document.getElementById("help").style.display = "none";
     } else {
         // Randomize, then iterate through the mentors array and create a row for each mentor
         mentors = randomize(mentors);
+        document.getElementById("help").style.display = "block";
         for (let i = 0; i < mentors[0].length; i++) {
             let row = document.createElement("tr");
             row.id = "row" + i;

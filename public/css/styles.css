@@ -311,6 +311,16 @@ p, label, input, table, td, ul {
     text-align: right;
 }
 
+#help {
+    text-align: center;
+    font-style: italic;
+}
+
+#help-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* Mentor form */
 
 #mentor-form-heading {
