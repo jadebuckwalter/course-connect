@@ -6,3 +6,6 @@
 
 # Ignore the CPSD logo
 public/images/district-logo-cps.png
+
+# Ignore the list of authentication codes for the mentor form
+setup/test-data/codes.tsv

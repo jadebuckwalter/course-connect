@@ -323,6 +323,12 @@ p, label, input, table, td, ul {
 
 /* Mentor form */
 
+#auth-label {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
 #mentor-form-heading {
     margin-top: 50px;
 }

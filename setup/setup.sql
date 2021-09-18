@@ -19,3 +19,12 @@ CREATE TABLE connect (
     studentID varchar(255),
     course varchar(255)
 );
+
+CREATE TABLE codes (
+    code varchar(255)
+);
+
+SET GLOBAL local_infile = 'ON';
+
+LOAD DATA LOCAL INFILE "setup/test-data/codes.tsv" INTO TABLE codes
+FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\n";

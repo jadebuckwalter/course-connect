@@ -38,6 +38,21 @@ app.post("/form", (req, res) => {
     res.sendFile(__dirname + "/public/html/form.html");
 });
 
+// Check the user's authentication code
+app.post("/auth", (req, res) => {
+    const query = "SELECT * FROM codes WHERE code = ?";
+    connection.query(query, req.body.code, (err, rows) => {
+        if (err) throw err;
+        rows.forEach(row => {
+            const del = "DELETE FROM codes WHERE code = ?";
+            connection.query(del, req.body.code, (err) => {
+                if (err) throw err;
+            });
+        });
+        res.end(JSON.stringify(rows));
+    });
+});
+
 // Receive search results, query the database for them, and pass back a JSON with the results
 app.post("/search", (req, res) => {
     const query = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ?";
