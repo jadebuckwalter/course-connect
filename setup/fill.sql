@@ -1,5 +1,7 @@
 -- Fill the courseconnect database with the test data
 
+SET GLOBAL local_infile = 'ON';
+
 LOAD DATA LOCAL INFILE "setup/test-data/courses.tsv" INTO TABLE courses 
 FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\r\n";
 
