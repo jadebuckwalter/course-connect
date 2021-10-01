@@ -1,4 +1,5 @@
 // Send a request to search for mentors that have taken the courses in the myCourses list
+// course (string): name of a course
 function searchMentors(course) {
     // HTTP request to send the search terms to the backend and store the results
     const xhttp = new XMLHttpRequest();
@@ -49,7 +50,9 @@ function formatMentors(list) {
     return mentors;
 }
 
-// Randomize the list of mentors
+// Randomize the list of mentors so that different mentors appear at the top of the list each time
+// mentors (array): array of mentor names and emails
+// Return the shuffled array of mentors
 function randomize(mentors) {
     let name, email, index;
     const length = mentors[0].length;
@@ -66,6 +69,8 @@ function randomize(mentors) {
 }
 
 // Display the list of mentors in a table
+// mentors (array): array of mentor names and emails
+// course (string): name of the course
 function displayMentors(mentors, course) {
     display("mentors");
     
@@ -96,6 +101,7 @@ function displayMentors(mentors, course) {
 }
 
 // Display the page indicated by the parameters, and hide/clear the other pages
+// page (string): specifies the page that should be displayed
 function display(page) {
     switch (page) {
         case "home":
@@ -108,7 +114,12 @@ function display(page) {
             clear("result", "results-container", "div");
             clear("search", "label", "input");
 
-            initialize("home");
+            // Press "enter" to search
+            document.getElementById("search").addEventListener("keydown", (event) => {
+                if (event.code === "Enter") {
+                    searchCourses("home");
+                }
+            });
             break;
 
         case "mentors":

@@ -1,4 +1,4 @@
--- Create the courseconnect database, and add the three tables
+-- Create the courseconnect database, and add the four tables
 
 CREATE DATABASE courseconnect;
 USE courseconnect;

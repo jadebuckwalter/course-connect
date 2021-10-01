@@ -1,6 +1,15 @@
 // Array to store list of courses that the mentor has taken
 let myCourses = [];
 
+// Press "enter" to search for courses
+function initialize() {
+    document.getElementById("search").addEventListener("keydown", (event) => {
+        if (event.code === "Enter") {
+            searchCourses("form");
+        }
+    });
+}
+
 // Function to submit the form
 function submitForm() {
     // User's inputs in the form

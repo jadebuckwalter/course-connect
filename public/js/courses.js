@@ -1,14 +1,5 @@
-// Things to initialize when the page is loaded
-function initialize(page) {
-    document.getElementById("search").addEventListener("keydown", (event) => {
-        if (event.code === "Enter") {
-            searchCourses(page);
-        }
-    });
-}
-
 // Send a request to the backend to search for the value in the search bar
-// Return an array containing the courses in the search results
+// page (string): either "home" or "form"
 function searchCourses(page) {
     // User's input in the search box
     const search = document.getElementById("search").value;
@@ -31,7 +22,12 @@ function searchCourses(page) {
 }
 
 // Format part of the search query based on the search terms
+// search (string): the search term
+// Return the search term formatted as a SQL query
 function formatQuery(search) {
+    // Check for and remove a space at the end of a search term
+    search = search.substring(search.length - 1) === " " ? search.substring(0, search.lastIndexOf(" ")) : search;
+
     let query = "% ";
     let index = 0;
     while (index < search.lastIndexOf(" ")) {
@@ -66,6 +62,8 @@ function formatCourseList(list) {
 }
 
 // Display the results of the search query as buttons that when clicked on, search mentors
+// courses (array): array of courses in the search results
+// page (string): either "home" or "form"
 function displayResults(courses, page) {
     // Clear the results from the previous search
     clear("result", "results-container", "table");
@@ -108,6 +106,8 @@ function clear(id, container, type) {
 }
 
 // Check for abbreviations and return the substitution if available
+// word (string): a word in the search terms
+// Return the full version if the word was in the abbreviations list; otherwise return the word
 function abbreviations(word) {
     const abbreviations = {
         "apcs": "AP Computer Science",
@@ -133,6 +133,7 @@ function abbreviations(word) {
 }
 
 // Hide and show the different resources on the resources page
+// id (string): the id of each resource element
 function toggleDisplay(id) {
     document.getElementById(id).style.display === "block" ? 
     document.getElementById(id).style.display = "none" : document.getElementById(id).style.display = "block";
