@@ -26,5 +26,8 @@ CREATE TABLE codes (
 
 SET GLOBAL local_infile = 'ON';
 
+LOAD DATA LOCAL INFILE "setup/test-data/courses.tsv" INTO TABLE courses 
+FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\r\n";
+
 LOAD DATA LOCAL INFILE "setup/test-data/codes.tsv" INTO TABLE codes
 FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\n";
