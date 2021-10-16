@@ -52,21 +52,3 @@ To start the CRLS Course Connect server, run `npm start` in the `course-connect`
 
 ### Issues/Feature Requests
 If you come across any issues while using the site or have any ideas for new features, please open an [issue](https://github.com/jadebuckwalter/course-connect/issues) on GitHub or fill out this [form](https://forms.gle/p7t2yP6AsWCRrYu39).
-
-## [Color Scheme](https://coolors.co/b4436c-00a693-f77f50)
-![Color Scheme](public/images/color-scheme.jpeg)
-```
-Primary Colors:
- - #b4436c
- - #00a693
- - #f77f50
-
-Secondary Colors:
- - #f4e1e8
- - #e9c3d1
- - #772c48
- - #b2e6e0
- - #74d2c7
- - #005248
- - #f56329
-```
