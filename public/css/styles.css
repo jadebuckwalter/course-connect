@@ -112,6 +112,12 @@ p, label, input, table, td, ul {
     right: 0;
 }
 
+#flex-box {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 #login-container {
     position: relative;
     display: flex;
@@ -125,10 +131,28 @@ p, label, input, table, td, ul {
     flex: 1;
 }
 
-#login-button, #cps-logo {
+#login-button, #cps-logo, #login-links-container {
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+#login-links-container {
+    padding-top: 50px;
+}
+
+.login-links {
+    font-family: "Lato-Regular";
+    cursor: pointer;
+    color: var(--magenta-dark);
+}
+
+#repo {
+    margin-right: 8px;
+}
+
+#privacy {
+    margin-left: 8px;
 }
 
 #cps-logo {

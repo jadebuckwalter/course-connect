@@ -39,7 +39,8 @@ function login(googleUser) {
         }
     } else {
         logOut();
-        document.getElementById("error").innerHTML = "You must sign in with your CPSD Google Account.";
+        document.getElementById("login-prompt").innerHTML = "You must sign in with your CPSD Google Account.";
+        document.getElementById("login-prompt").style = "color: red";
     }
 }
 
