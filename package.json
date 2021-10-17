@@ -1,11 +1,11 @@
 {
   "name": "course-connect",
   "version": "1.0.0",
-  "description": "Site to help CRLS students search for classes and connect with mentors",
-  "homepage": "https://github.com/jadebuckwalter/course-connect#readme",
+  "description": "Student to student course selection mentoring",
+  "homepage": "https://courseconnect.cpsd.us",
   "repository": "github:jadebuckwalter/course-connect",
   "author": "Jade Buckwalter",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "start": "node serve.js"
   },
