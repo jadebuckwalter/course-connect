@@ -14,6 +14,7 @@
 body {
     background-color: #f5f5f5;
     --light-gray: #eeeeee;
+    --gray: #777777;
 
     --black: #000000;
     --white: #ffffff;
@@ -312,6 +313,14 @@ p, label, input, table, td, ul {
     margin-left: 10%;
     margin-right: 10%;
     text-align: left;
+}
+
+#version {
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--gray);
 }
 
 /* Mentor page */
