@@ -50,5 +50,5 @@ To add test data to your database, run `mysql -u root -p < setup/fill.sql` in th
 ### Starting the Server
 To start the CRLS Course Connect server, run `npm start` in the `course-connect` directory of your terminal. Visit `localhost:3000` in your browser. To access the mentor form, visit `localhost:3000/form`.
 
-### Issues/Feature Requests
+## Issues/Feature Requests
 If you come across any issues while using the site or have any ideas for new features, please open an [issue](https://github.com/jadebuckwalter/course-connect/issues) on GitHub or fill out this [form](https://forms.gle/p7t2yP6AsWCRrYu39).
