@@ -24,6 +24,10 @@ function submitForm() {
     // Check for user input
     if (info.id === "" || info.first === "" || info.last === "" || info.email === "" || info.courses.length === 0) {
         document.getElementById("submit-error").style.display = "block";
+        document.getElementById("submit-error").innerHTML = "Please fill out all of the fields.";
+    } else if (info.email.substring(info.email.length - 8) !== "@cpsd.us") {
+        document.getElementById("submit-error").style.display = "block";
+        document.getElementById("submit-error").innerHTML = "Please use your CPSD email.";
     } else {
         // HTTP request to send the search terms to the backend and store the results
         const xhttp = new XMLHttpRequest();
