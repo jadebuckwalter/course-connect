@@ -25,9 +25,14 @@ function submitForm() {
     if (info.id === "" || info.first === "" || info.last === "" || info.email === "" || info.courses.length === 0) {
         document.getElementById("submit-error").style.display = "block";
         document.getElementById("submit-error").innerHTML = "Please fill out all of the fields.";
+    // Ensure the email entered is the student's CPSD email address
     } else if (info.email.substring(info.email.length - 8) !== "@cpsd.us") {
         document.getElementById("submit-error").style.display = "block";
         document.getElementById("submit-error").innerHTML = "Please use your CPSD email.";
+    // Ensure all of the boxes are checked
+    } else if (!document.getElementById("item1").checked || !document.getElementById("item2").checked || !document.getElementById("item3").checked) {
+        document.getElementById("submit-error").style.display = "block";
+        document.getElementById("submit-error").innerHTML = "You must check all of the boxes.";
     } else {
         // HTTP request to send the search terms to the backend and store the results
         const xhttp = new XMLHttpRequest();
