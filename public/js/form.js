@@ -15,8 +15,8 @@ function submitForm() {
     // User's inputs in the form
     const info = {
         id: document.getElementById("student-id").value,
-        first: document.getElementById("first-name").value,
-        last: document.getElementById("last-name").value,
+        first: format(document.getElementById("first-name").value),
+        last: format(document.getElementById("last-name").value),
         email: document.getElementById("email").value,
         courses: myCourses
     };
@@ -46,6 +46,22 @@ function submitForm() {
         submitted.innerHTML = "Success! The form was submitted.";
         document.body.append(submitted);
     }
+}
+
+// Format names so that the first letter is uppercase and the rest are lowercase
+// name (string): either the first name or last name
+// Return the formatted version of the name
+function format(name) {
+    const specialChars = {" ":" ", "-":"-", "'":"'", ".":"."};
+    let formatted = "";
+    for (let i = 0; i < name.length; i++) {
+        if (i === 0 || name.charAt(i - 1) in specialChars) {
+            formatted += name.charAt(i).toUpperCase();
+        } else {
+            formatted += name.charAt(i).toLowerCase();
+        }
+    }
+    return formatted;
 }
 
 // Create a pop-up window to ensure that the user wants to submit the form.
