@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2](https://github.com/jadebuckwalter/course-connect/releases/tag/v1.0.2) - tagged 2021-11-15
+- Update the mentor form to check for CPSD email addresses, add terms and conditions, and format names correctly
+- Add course selection resources to the "Resources" page
+
 ## [1.0.1](https://github.com/jadebuckwalter/course-connect/releases/tag/v1.0.1) - tagged 2021-10-16
 - Update `README.md` to include features and instructions for locally running CRLS Course Connect
 - Make minor changes to the login page
