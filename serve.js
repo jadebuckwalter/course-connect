@@ -107,7 +107,7 @@ app.post("/submit", (req, res) => {
             if (err) throw err;
         })
     });
-    res.end();
+    res.redirect("/");
 });
 
 // Run the app on the server

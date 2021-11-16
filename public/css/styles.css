@@ -394,6 +394,10 @@ p, label, input, table, td, ul {
     text-align: left;
 }
 
+#item1, #item2, #item3 {
+    cursor: pointer;
+}
+
 #submit-error {
     color: var(--red);
 }
