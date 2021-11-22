@@ -26,8 +26,10 @@ CREATE TABLE IF NOT EXISTS codes (
 
 SET GLOBAL local_infile = 'ON';
 
+DELETE FROM courses;
 LOAD DATA LOCAL INFILE "setup/test-data/courses.tsv" INTO TABLE courses 
 FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\r\n";
 
+DELETE FROM codes;
 LOAD DATA LOCAL INFILE "setup/test-data/codes.tsv" INTO TABLE codes
 FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\n";
