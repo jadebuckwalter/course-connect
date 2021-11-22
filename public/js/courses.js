@@ -31,10 +31,10 @@ function formatQuery(search) {
     let query = "% ";
     let index = 0;
     while (index < search.lastIndexOf(" ")) {
-        query += abbreviations(search.substring(index, search.indexOf(" ", index))) + "% ";
+        query += abbreviations(search.substring(index, search.indexOf(" ", index)).toLowerCase()) + "% ";
         index = search.indexOf(" ", index) + 1;
     }
-    query += abbreviations(search.substring(search.lastIndexOf(" ") + 1)) + "%";
+    query += abbreviations(search.substring(search.lastIndexOf(" ") + 1).toLowerCase()) + "%";
     return query;
 }
 
