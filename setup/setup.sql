@@ -1,26 +1,26 @@
 -- Create the courseconnect database, and add the four tables
 
-CREATE DATABASE courseconnect;
+CREATE DATABASE IF NOT EXISTS courseconnect;
 USE courseconnect;
 
-CREATE TABLE courses (
+CREATE TABLE IF NOT EXISTS courses (
     id varchar(255),
     name varchar(255)
 );
 
-CREATE TABLE mentors (
+CREATE TABLE IF NOT EXISTS mentors (
     id varchar(255),
     first varchar(255),
     last varchar(255),
     email varchar(255)
 );
 
-CREATE TABLE connect (
+CREATE TABLE IF NOT EXISTS connect (
     studentID varchar(255),
     course varchar(255)
 );
 
-CREATE TABLE codes (
+CREATE TABLE IF NOT EXISTS codes (
     code varchar(255)
 );
 
