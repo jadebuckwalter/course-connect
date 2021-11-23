@@ -1,8 +1,8 @@
 // Send a request to the backend to search for the value in the search bar
 // page (string): either "home" or "form"
 function searchCourses(page) {
-    // User's input in the search box
-    const search = document.getElementById("search").value;
+    // Make user's input in the search box lowercase
+    const search = document.getElementById("search").value.toLowerCase();
 
     // Check for valid input
     if (search === "") {
@@ -15,9 +15,15 @@ function searchCourses(page) {
                 displayResults(formatCourseList(xhttp.responseText), page);
             }
         }
-        xhttp.open("POST", "/search");
-        xhttp.setRequestHeader("Content-Type", "application/json");
-        xhttp.send(JSON.stringify({key: formatQuery(search)}));
+        if (search !== checkForSubject(search)) {
+            xhttp.open("POST", "/search-subject");
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send(JSON.stringify({key: checkForSubject(search)}));
+        } else {
+            xhttp.open("POST", "/search");
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send(JSON.stringify({key: formatQuery(search)}));
+        }
     }
 }
 
@@ -31,10 +37,10 @@ function formatQuery(search) {
     let query = "% ";
     let index = 0;
     while (index < search.lastIndexOf(" ")) {
-        query += abbreviations(search.substring(index, search.indexOf(" ", index)).toLowerCase()) + "% ";
+        query += abbreviations(search.substring(index, search.indexOf(" ", index))) + "% ";
         index = search.indexOf(" ", index) + 1;
     }
-    query += abbreviations(search.substring(search.lastIndexOf(" ") + 1).toLowerCase()) + "%";
+    query += abbreviations(search.substring(search.lastIndexOf(" ") + 1)) + "%";
     return query;
 }
 
@@ -117,7 +123,6 @@ function abbreviations(word) {
         "asl": "American Sign Language",
         "cs": "computer science",
         "e&m": "Electricity and Magnetism",
-        "ela": "English",
         "precalc": "Pre-Calculus",
         "rsta": "TC",
         "stats": "Statistics",
@@ -130,6 +135,34 @@ function abbreviations(word) {
         word = abbreviations[word];
     }
     return word;
+}
+
+// Check for subject searches
+// search (string): the search term
+// Return the abbreviation for the subject that will be inserted into the query
+function checkForSubject(search) {
+    const subjects = {
+        "art": "A",
+        "business": "B",
+        "dance": "D",
+        "ela": "E",
+        "english": "E",
+        "history": "H",
+        "music": "I",
+        "language": "L",
+        "math": "M",
+        "pe": "PE",
+        "gym": "PE",
+        "health": "PE",
+        "wellness": "PE",
+        "science": "S",
+        "enhanced senior year": "Y"
+    }
+
+    if (subjects[search] !== undefined) {
+        search = subjects[search] + "%";
+    }
+    return search;
 }
 
 // Hide and show the different resources on the resources page

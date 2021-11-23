@@ -66,6 +66,19 @@ app.post("/search", (req, res) => {
     });
 });
 
+// Receive a subject code, query the database for that subject, and pass back a JSON with the results
+app.post("/search-subject", (req, res) => {
+    const query = "SELECT * FROM courses WHERE id LIKE ?";
+    connection.query(query, req.body.key, (err, rows) => {
+        if (err) throw err;
+        const courses = [];
+        rows.forEach(row => {
+            courses.push(row.name);
+        });
+        res.end(JSON.stringify(courses));
+    });
+});
+
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
 app.post("/results", (req, res) => {
