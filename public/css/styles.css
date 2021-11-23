@@ -75,7 +75,7 @@ a:visited {
 }
 
 table {
-    width: 500px;
+    width: 600px;
     table-layout: auto;
     border-collapse: collapse;
 }
@@ -210,7 +210,7 @@ p, label, input, table, td, ul {
     font-size: 20px;
     color: var(--black);
     background-color: var(--white);
-    width: 385px;
+    width: 485px;
     display: inline-block;
     padding: 9px 12px;
     border: 1px solid var(--black);
@@ -375,7 +375,7 @@ p, label, input, table, td, ul {
 }
 
 #search-container {
-    width: 550px;
+    width: 650px;
 }
 
 .course-list-form:hover {
@@ -403,6 +403,18 @@ p, label, input, table, td, ul {
 }
 
 @media screen and (max-width: 992px) {
+    table {
+        width: 500px;
+    }
+
+    #search-container {
+        width: 550px;
+    }
+
+    #search {
+        width: 385px;
+    }
+
     #nav-buttons {
         position: relative;
         margin-top: -70px;
