@@ -82,7 +82,7 @@ app.post("/search-subject", (req, res) => {
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
 app.post("/results", (req, res) => {
-    const query = "SELECT first, last, email FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
+    const query = "SELECT first, last, email, pmsg FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
     connection.query(query, req.body.course, (err, rows) => {
         if (err) throw err;
         const mentors = [];
@@ -90,7 +90,8 @@ app.post("/results", (req, res) => {
             mentors.push({
                 "first": r.first,
                 "last": r.last,
-                "email": r.email
+                "email": r.email,
+                "pmsg": r.pmsg
             });
         });
         res.end(JSON.stringify(mentors));

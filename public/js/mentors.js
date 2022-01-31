@@ -29,19 +29,24 @@ function formatMentors(list) {
     // Index of the first course
     let index = 1;
 
-    // Iterate through the string and add each mentor to the array
-    while (index < list.lastIndexOf("{")) {
-        names.push(list.substring(list.indexOf("\"first\"", index) + 9, list.indexOf("\"last\"", index) - 2) + " " +
-                    list.substring(list.indexOf("\"last\"", index) + 8, list.indexOf("\"email\"", index) - 2));
-        emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf("{", index + 1) - 3));
+    // Text indicating PMSG mentors
+    let indicator = " (PMSG)"
 
-        index = list.indexOf("{", index + 1);
+    // Current name
+    let currentName = "";
+
+    // Iterate through the string and add each mentor to the array
+    while (index < list.lastIndexOf("pmsg")) {
+        currentName = list.substring(list.indexOf("\"first\"", index) + 9, list.indexOf("\"last\"", index) - 2) + " " +
+                list.substring(list.indexOf("\"last\"", index) + 8, list.indexOf("\"email\"", index) - 2);
+        list.substring(list.indexOf("pmsg", index + 1) + 7, list.indexOf("pmsg", index + 1) + 8) === "1" ? 
+                names.push(currentName + indicator) : names.push(currentName);
+        emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf("pmsg", index + 1) - 3));
+
+        index = list.indexOf("pmsg", index + 1);
     }
 
-    // Add the last mentor
-    names.push(list.substring(list.indexOf("\"first\"", index) + 9, list.indexOf("\"last\"", index) - 2) + " " + 
-                list.substring(list.indexOf("\"last\"", index) + 8, list.indexOf("\"email\"", index) - 2));
-    emails.push(list.substring(list.indexOf("\"email\"", index) + 9, list.indexOf("}", index + 1) - 1));
+    console.log(list);
 
     // Add the names and emails to the results array
     mentors.push(names);
