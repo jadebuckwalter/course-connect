@@ -18,6 +18,7 @@ function submitForm() {
         first: format(document.getElementById("first-name").value),
         last: format(document.getElementById("last-name").value),
         email: document.getElementById("email").value,
+        pmsg: document.getElementById("pmsg").checked ? "1" : "0",
         courses: myCourses
     };
 

@@ -109,8 +109,8 @@ app.post("/submit", (req, res) => {
         if (err) throw err;
     });
     // Insert the latest mentor info
-    const insert = "INSERT INTO mentors (id, first, last, email) VALUES (?, ?, ?, ?)";
-    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email], (err) => {
+    const insert = "INSERT INTO mentors (id, first, last, email, pmsg) VALUES (?, ?, ?, ?, ?)";
+    connection.query(insert, [req.body.id, req.body.first, req.body.last, req.body.email, req.body.pmsg], (err) => {
         if (err) throw err;
     });
     // Insert all of the mentor's courses into the "connect" table
