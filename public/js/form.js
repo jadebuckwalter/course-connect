@@ -41,11 +41,8 @@ function submitForm() {
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(info));
 
-        // Display a "submitted" message
-        document.body.innerHTML = "";
-        const submitted = document.createElement("p");
-        submitted.innerHTML = "Success! The form was submitted.";
-        document.body.append(submitted);
+        // Go back to the main page
+        window.location.replace("/");
     }
 }
 
