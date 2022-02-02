@@ -68,8 +68,8 @@ app.post("/search", (req, res) => {
 
 // Receive a subject code, query the database for that subject, and pass back a JSON with the results
 app.post("/search-subject", (req, res) => {
-    const query = "SELECT * FROM courses WHERE id LIKE ?";
-    connection.query(query, req.body.key, (err, rows) => {
+    const query = "SELECT * FROM courses WHERE id LIKE ? OR name LIKE ? OR name LIKE ?";
+    connection.query(query, [req.body.key, req.body.original, req.body.original.substring(2)], (err, rows) => {
         if (err) throw err;
         const courses = [];
         rows.forEach(row => {

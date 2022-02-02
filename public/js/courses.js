@@ -18,7 +18,7 @@ function searchCourses(page) {
         if (search !== checkForSubject(search)) {
             xhttp.open("POST", "/search-subject");
             xhttp.setRequestHeader("Content-Type", "application/json");
-            xhttp.send(JSON.stringify({key: checkForSubject(search)}));
+            xhttp.send(JSON.stringify({key: checkForSubject(search), original: formatQuery(search)}));
         } else {
             xhttp.open("POST", "/search");
             xhttp.setRequestHeader("Content-Type", "application/json");
