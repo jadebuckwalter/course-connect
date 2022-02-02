@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS mentors (
     id varchar(255),
     first varchar(255),
     last varchar(255),
-    email varchar(255)
+    email varchar(255),
+    pmsg varchar(1)
 );
 
 CREATE TABLE IF NOT EXISTS connect (
