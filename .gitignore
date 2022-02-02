@@ -12,3 +12,6 @@ setup/test-data/codes.tsv
 
 # Ignore the extra, one-time commands
 setup/commands.sql
+
+# Ignore modules
+node_modules/
