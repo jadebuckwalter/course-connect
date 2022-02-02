@@ -55,8 +55,8 @@ app.post("/auth", (req, res) => {
 
 // Receive search results, query the database for them, and pass back a JSON with the results
 app.post("/search", (req, res) => {
-    const query = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ?";
-    connection.query(query, [req.body.key, req.body.key.substring(2)], (err, rows) => {
+    const query = "SELECT * FROM courses WHERE name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?";
+    connection.query(query, [req.body.key[0], req.body.key[0].substring(2), req.body.key[1], req.body.key[1].substring(2)], (err, rows) => {
         if (err) throw err;
         const courses = [];
         rows.forEach(row => {
@@ -68,8 +68,8 @@ app.post("/search", (req, res) => {
 
 // Receive a subject code, query the database for that subject, and pass back a JSON with the results
 app.post("/search-subject", (req, res) => {
-    const query = "SELECT * FROM courses WHERE id LIKE ? OR name LIKE ? OR name LIKE ?";
-    connection.query(query, [req.body.key, req.body.original, req.body.original.substring(2)], (err, rows) => {
+    const query = "SELECT * FROM courses WHERE id LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?";
+    connection.query(query, [req.body.key, req.body.original[0], req.body.original[0].substring(2), req.body.original[1], req.body.original[1].substring(2)], (err, rows) => {
         if (err) throw err;
         const courses = [];
         rows.forEach(row => {

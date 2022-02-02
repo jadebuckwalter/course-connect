@@ -29,19 +29,21 @@ function searchCourses(page) {
 
 // Format part of the search query based on the search terms
 // search (string): the search term
-// Return the search term formatted as a SQL query
+// Return two SQL queries of the search term, one with abbreviations and one without
 function formatQuery(search) {
     // Check for and remove a space at the end of a search term
     search = search.substring(search.length - 1) === " " ? search.substring(0, search.lastIndexOf(" ")) : search;
 
-    let query = "% ";
+    let queries = ["% ", "% "];
     let index = 0;
     while (index < search.lastIndexOf(" ")) {
-        query += abbreviations(search.substring(index, search.indexOf(" ", index))) + "% ";
+        queries[0] += abbreviations(search.substring(index, search.indexOf(" ", index))) + "% ";
+        queries[1] += search.substring(index, search.indexOf(" ", index)) + "% ";
         index = search.indexOf(" ", index) + 1;
     }
-    query += abbreviations(search.substring(search.lastIndexOf(" ") + 1)) + "%";
-    return query;
+    queries[0] += abbreviations(search.substring(search.lastIndexOf(" ") + 1)) + "%";
+    queries[1] += search.substring(search.lastIndexOf(" ") + 1) + "%";
+    return queries;
 }
 
 // Convert the string of courses given by the backend to an array
