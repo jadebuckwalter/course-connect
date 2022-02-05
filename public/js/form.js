@@ -84,6 +84,7 @@ function addCoursesForm() {
                 }
             }
         }
+        // Send the request to identify the mentor
         xhttp.open("POST", "/identify");
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(info));

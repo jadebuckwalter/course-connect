@@ -144,7 +144,6 @@ app.post("/identify", (req, res) => {
 
 // Add mentors' new courses into the database
 app.post("/add-courses", (req, res) => {
-    // Insert all of the new courses into the "connect" table
     const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
     req.body.courses.forEach(course => {
         connection.query(query, [req.body.id, course], (err) => {
