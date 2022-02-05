@@ -38,6 +38,16 @@ app.post("/form", (req, res) => {
     res.sendFile(__dirname + "/public/html/form.html");
 });
 
+// Direct to the add courses page
+app.get("/add", (req, res) => {
+    res.sendFile(__dirname + "/public/html/add-courses-login.html");
+});
+
+// Redirect to the add courses page once the user has logged in
+app.post("/add", (req, res) => {
+    res.sendFile(__dirname + "/public/html/add-courses.html");
+});
+
 // Check the user's authentication code
 app.post("/auth", (req, res) => {
     const query = "SELECT * FROM codes WHERE code = ?";
@@ -120,6 +130,26 @@ app.post("/submit", (req, res) => {
         connection.query(query, [req.body.id, course], (err) => {
             if (err) throw err;
         })
+    });
+});
+
+// Identify the mentor by confirming their student ID and email
+app.post("/identify", (req, res) => {
+    const query = "SELECT * FROM mentors WHERE id = ? AND email = ?"
+    connection.query(query, [req.body.id, req.body.email], (err, rows) => {
+        if (err) throw err;
+        res.end(JSON.stringify(rows));
+    });
+});
+
+// Add mentors' new courses into the database
+app.post("/add-courses", (req, res) => {
+    // Insert all of the new courses into the "connect" table
+    const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
+    req.body.courses.forEach(course => {
+        connection.query(query, [req.body.id, course], (err) => {
+            if (err) throw err;
+        });
     });
 });
 

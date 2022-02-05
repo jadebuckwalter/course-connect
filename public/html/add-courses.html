@@ -1,0 +1,36 @@
+<!--Form to add courses-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Add Courses | CRLS Course Connect</title>
+        <script src="js/courses.js"></script>
+        <script src="js/form.js"></script>
+        <script data-goatcounter="https://courseconnect.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body onload="initialize();">
+        <h1>Add Courses</h1>
+        <p>If you are a CRLS Course Connect mentor, use this form to add additional courses you have taken.</p><br>
+
+        <label>Student ID: <input type="number" id="student-id" class="form-input"></label><br><br>
+        <label>CPSD email: <input type="email" id="email" class="form-input"></label><br><br><br><br>
+
+        <div id="form-container">
+            <div id="search-container">
+                <input type="text" id="search">
+                <button onclick="searchCourses('form')">Search</button><br><br>
+                <div id="results-container"><div id="result"></div></div><br><br>
+            </div>
+            <div id="courses-container">
+                <h2 id="courses-taken">Additional Courses</h2>
+                <ul id="my-courses">
+                    <li id="starter">Courses that you select will show up here.</li>
+                </ul>
+            </div>
+        </div><br>
+
+        <button onclick="confirmSubmission('add')">Submit</button><br>
+        <p id="submit-error" style="display: none"></p>
+    </body>
+</html>

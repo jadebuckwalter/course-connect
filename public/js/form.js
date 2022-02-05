@@ -46,6 +46,50 @@ function submitForm() {
     }
 }
 
+// Function to submit the "add courses" form
+function addCoursesForm() {
+    // User's inputs in the form
+    const info = {
+        id: document.getElementById("student-id").value,
+        email: document.getElementById("email").value,
+        courses: myCourses
+    };
+
+    // Check for user input
+    if (info.id === "" || info.email === "" || info.courses.length === 0) {
+        document.getElementById("submit-error").style.display = "block";
+        document.getElementById("submit-error").innerHTML = "Please fill out all of the fields.";
+    // Ensure the email entered is the student's CPSD email address
+    } else if (info.email.substring(info.email.length - 8) !== "@cpsd.us") {
+        document.getElementById("submit-error").style.display = "block";
+        document.getElementById("submit-error").innerHTML = "Please use your CPSD email.";
+    } else {
+        // Send a request to verify the mentor
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = () => {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                // If the mentor is in the database, run the next query to input their data
+                if (xhttp.responseText.length > 2) {
+                    // HTTP request to send the search terms to the backend and store the results
+                    const xhttp2 = new XMLHttpRequest();
+                    xhttp2.open("POST", "/add-courses");
+                    xhttp2.setRequestHeader("Content-Type", "application/json");
+                    xhttp2.send(JSON.stringify(info));
+
+                    // Go back to the main page
+                    window.location.replace("/");
+                } else {
+                    document.getElementById("submit-error").style.display = "block";
+                    document.getElementById("submit-error").innerHTML = "Mentor not found. Make sure to input all information correctly.";
+                }
+            }
+        }
+        xhttp.open("POST", "/identify");
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(info));
+    }
+}
+
 // Format names so that the first letter is uppercase and the rest are lowercase
 // name (string): either the first name or last name
 // Return the formatted version of the name
@@ -63,10 +107,14 @@ function format(name) {
 }
 
 // Create a pop-up window to ensure that the user wants to submit the form.
-function confirmSubmission() {
+function confirmSubmission(form) {
     let submit = confirm("Are you sure you want to submit?");
     if (submit) {
-        submitForm();
+        if (form === "mentor") {
+            submitForm();
+        } else if (form === "add") {
+            addCoursesForm();
+        }
     }
 }
 

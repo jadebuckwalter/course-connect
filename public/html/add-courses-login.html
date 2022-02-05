@@ -1,0 +1,26 @@
+<!--Login to add courses-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Add Courses Login | CRLS Course Connect</title>
+        <script src="js/login.js"></script>
+        <script src="https://apis.google.com/js/api.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <script data-goatcounter="https://courseconnect.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        <link rel="stylesheet" href="../css/styles.css">
+        <meta name="google-signin-client_id" content="237365754441-4033njub54s3qujgketiufaq6dfgi6ne.apps.googleusercontent.com">
+    </head>
+    <body>
+        <h2 id="mentor-form-heading">CRLS Course Connect - Add Courses</h2>
+        <div id="login-prompt-button">
+            <p id="login-prompt">Sign in with your CPSD Google Account</p><br>
+            <div id="login-button">
+                <form action="/add" method="POST">
+                    <div id="login-google" class="google g-signin2"></div><br>
+                </form>
+            </div>
+            <p id="error"></p>
+        </div>
+    </body>
+</html>
