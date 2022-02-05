@@ -144,10 +144,16 @@ app.post("/identify", (req, res) => {
 
 // Add mentors' new courses into the database
 app.post("/add-courses", (req, res) => {
+    const check = "SELECT * FROM connect WHERE studentID = ? AND course = ?";
     const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
     req.body.courses.forEach(course => {
-        connection.query(query, [req.body.id, course], (err) => {
+        connection.query(check, [req.body.id, course], (err, rows) => {
             if (err) throw err;
+            if (rows.length === 0) {
+                connection.query(query, [req.body.id, course], (err) => {
+                    if (err) throw err;
+                });
+            }
         });
     });
 });
