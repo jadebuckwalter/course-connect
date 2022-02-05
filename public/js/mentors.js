@@ -78,7 +78,7 @@ function displayMentors(mentors, course) {
     display("mentors");
     
     // Check to see if there are any results
-    if (mentors[0][0] === "[] []") {
+    if (mentors[0][0] === undefined) {
         document.getElementById("mentor-results").innerHTML = "No mentors have taken " + course + ".";
         document.getElementById("help").style.display = "none";
     } else {
