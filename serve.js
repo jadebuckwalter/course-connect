@@ -4,19 +4,17 @@ const dotenv = require("dotenv");
 dotenv.config();
 const mysql = require("mysql");
 const port = process.env.PORT || 3000;
+const database = require("./database.js");
 
 app.use(express.json());
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use(express.static(__dirname + "/public"));
 
 // Connect to the MySQL database
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-});
-connection.connect();
+const connection = database.init();
+
+// Ensure that the database is up to date
+database.ensureVersion();
 
 // Direct to login first (will automatically redirect to home if user is logged in)
 app.get("/", (req, res) => {
