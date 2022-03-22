@@ -1,0 +1,24 @@
+<!--Form to add courses-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Admin Portal | CRLS Course Connect</title>
+        <script data-goatcounter="https://courseconnect.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        <script src="js/admin.js"></script>
+        <script src="js/courses.js"></script>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Admin Portal</h1>
+        <div id="query">
+            <label id="label">Enter a SELECT query: <input id="input"></label>
+            <button onclick="query();">Search</button><br><br>
+        </div>
+        <div id="admin-results-container">
+            <table id="results"></table>
+        </div>
+        <p id="error"></p>
+        
+    </body>
+</html>
