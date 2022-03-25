@@ -21,10 +21,17 @@ function ensureVersion() {
     const createTable = "CREATE TABLE IF NOT EXISTS version (ver varchar(8), timestamp varchar(255))";
     connection.query(createTable, (err) => {
         if (err) throw err;
-        const addVer = "INSERT INTO version VALUES ('1.0.2', CURRENT_TIMESTAMP)";
-        connection.query(addVer, (err) => {
-            if (err) throw err;
-        });
+    });
+    // Insert the initial version if nonexistent
+    const firstVersion = "SELECT * FROM version";
+    connection.query(firstVersion, (err, rows) => {
+        if (err) throw err;
+        if (rows.length === 0) {
+            const addVer = "INSERT INTO version VALUES ('1.0.2', CURRENT_TIMESTAMP)";
+            connection.query(addVer, (err) => {
+                if (err) throw err;
+            });
+        }
     });
     // Detect older version of the database without pmsg column
     const query = "SHOW COLUMNS FROM mentors LIKE 'pmsg'";
@@ -47,7 +54,7 @@ function ensureVersion() {
     const currentVersion = "SELECT ver FROM version";
     connection.query(currentVersion, (err, rows) => {
         if (err) throw err;
-        if (rows[rows.length - 1] = "1.0.2") {
+        if (rows[rows.length - 1].ver === "1.0.2") {
             const updateVersion = "INSERT INTO version VALUES ('1.0.3', CURRENT_TIMESTAMP)";
             connection.query(updateVersion, (err) => {
                 if (err) throw err;
