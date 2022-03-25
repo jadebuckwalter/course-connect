@@ -26,7 +26,8 @@ CREATE TABLE IF NOT EXISTS codes (
 );
 
 CREATE TABLE IF NOT EXISTS version (
-    ver varchar(8)
+    ver varchar(8),
+    timestamp varchar(255)
 );
 
 SET GLOBAL local_infile = 'ON';
