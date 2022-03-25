@@ -25,6 +25,10 @@ CREATE TABLE IF NOT EXISTS codes (
     code varchar(255)
 );
 
+CREATE TABLE IF NOT EXISTS version (
+    ver varchar(8)
+);
+
 SET GLOBAL local_infile = 'ON';
 
 DELETE FROM courses;
