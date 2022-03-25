@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4](https://github.com/jadebuckwalter/course-connect/releases/tag/v1.0.4) - tagged 2022-03-25
+- Detect previous versions of the database and automatically migrate to the current version ([#45](https://github.com/jadebuckwalter/course-connect/issues/45), [#48](https://github.com/jadebuckwalter/course-connect/pull/48))
+- Add a page for mentors to enter new courses that they have taken ([#10](https://github.com/jadebuckwalter/course-connect/issues/10))
+- Add a brief description of the Peer Mentor Support Group (PMSG) to the mentor form
+- Properly display a message to indicate when no mentors have taken a class ([#46](https://github.com/jadebuckwalter/course-connect/issues/46))
+
 ## [1.0.3](https://github.com/jadebuckwalter/course-connect/releases/tag/v1.0.3) - tagged 2022-02-01
 - Add support for indicating PMSG (Peer Mentor Support Group) mentors ([#44](https://github.com/jadebuckwalter/course-connect/pull/44))
 - Search by subject area in addition to individual classes ([#4](https://github.com/jadebuckwalter/course-connect/issues/4))
