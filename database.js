@@ -37,6 +37,8 @@ function ensureVersion() {
 					if (err) throw err;
 					callback(...args);
 				});
+			} else {
+				callback(...args);
 			}
 		});
 	}
@@ -58,6 +60,8 @@ function ensureVersion() {
 					if (err) throw err;
 					callback(...args);
 				});
+			} else {
+				callback(...args);
 			}
 		});
 	}
