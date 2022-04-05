@@ -402,6 +402,19 @@ p, label, input, table, td, ul {
     color: var(--red);
 }
 
+/* Admin portal */
+
+#query, #admin-results-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#input {
+    width: 700px;
+    padding: 5px;
+}
+
 @media screen and (max-width: 992px) {
     table {
         width: 500px;
