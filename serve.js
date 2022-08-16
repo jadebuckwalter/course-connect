@@ -46,6 +46,16 @@ app.post("/add", (req, res) => {
     res.sendFile(__dirname + "/public/html/add-courses.html");
 });
 
+// Direct to the admin page
+app.get("/admin", (req, res) => {
+    res.sendFile(__dirname + "/public/html/admin-login.html");
+});
+
+// Redirect to the admin page once the user has logged in
+app.post("/admin", (req, res) => {
+    res.sendFile(__dirname + "/public/html/admin.html");
+});
+
 // Check the user's authentication code
 app.post("/auth", (req, res) => {
     const query = "SELECT * FROM codes WHERE code = ?";
@@ -153,6 +163,16 @@ app.post("/add-courses", (req, res) => {
                 });
             }
         });
+    });
+});
+
+// Perform the query entered into the admin portal
+app.post("/query", (req, res) => {
+    const queries = ["SELECT * FROM courses;", "SELECT * FROM mentors;", "SELECT * FROM connect;"];
+    const query = queries[req.body.query];
+    connection.query(query, (err, rows) => {
+        if (err) throw err;
+        res.end(JSON.stringify(rows));
     });
 });
 
