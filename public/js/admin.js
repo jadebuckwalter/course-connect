@@ -1,7 +1,5 @@
 // Query the database with a "SELECT" query
 function query(index) {
-    const queries = ["SELECT * FROM courses;", "SELECT * FROM mentors;", "SELECT * FROM connect;"];
-    const query = queries[index];
     // HTTP request to send the query to the backend
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = () => {
@@ -11,7 +9,7 @@ function query(index) {
     }
     xhttp.open("POST", "/query");
     xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send(JSON.stringify({query: query}));
+    xhttp.send(JSON.stringify({query: index}));
 }
 
 // Format and display the results of the query

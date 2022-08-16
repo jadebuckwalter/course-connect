@@ -170,7 +170,8 @@ app.post("/add-courses", (req, res) => {
 
 // Perform the query entered into the admin portal
 app.post("/query", (req, res) => {
-    const query = req.body.query;
+    const queries = ["SELECT * FROM courses;", "SELECT * FROM mentors;", "SELECT * FROM connect;"];
+    const query = queries[req.body.query];
     connection.query(query, (err, rows) => {
         if (err) throw err;
         res.end(JSON.stringify(rows));
