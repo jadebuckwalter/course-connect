@@ -45,7 +45,7 @@ Navigate to `setup/test-data` and create a file called `codes.tsv`. This is wher
 
 To set up the database and add the course data and authentication codes, run `mysql -u root -p < setup/setup.sql` in the `course-connect` directory. Enter the password to your database when prompted.
 
-To add test data to your database, run `mysql -u root -p < setup/fill.sql` in the `course-connect` directory. Enter the password to your database when prompted.
+To add test data to your database, run `mysql -u root -p < setup/fill.sql` in the `course-connect` directory. Enter the password to your database when prompted. If this doesn't work, run `fill.py`, which will write the necessary queries to `out.txt`. You can then copy and paste these queries into MySQL in the terminal.
 
 ### Starting the Server
 To start the CRLS Course Connect server, run `npm start` in the `course-connect` directory of your terminal. Visit `localhost:3000` in your browser. To access the mentor form, visit `localhost:3000/form`.
