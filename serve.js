@@ -5,6 +5,7 @@ dotenv.config();
 const mysql = require("mysql");
 const port = process.env.PORT || 3000;
 const database = require("./database.js");
+const package = require("./package.json");
 
 app.use(express.json());
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
@@ -24,6 +25,10 @@ app.get("/", (req, res) => {
 // Redirect to the home page if the user has logged in with correct credentials
 app.post("/", (req, res) => {
     res.sendFile(__dirname + "/public/html/home.html");
+});
+
+app.post("/version", (req, res) => {
+    res.end(package.version);
 });
 
 // Direct to the login page for the mentor form

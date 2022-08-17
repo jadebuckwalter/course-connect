@@ -12,3 +12,16 @@ function clear(id, container, type) {
     div.id = id;
     document.getElementById(container).appendChild(div);
 }
+
+// Display the version number from the backend
+function getVersion() {
+    // HTTP request to send the search terms to the backend and store the results
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/version");
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            document.getElementById("version").innerHTML = "Version: " + xhttp.responseText;
+        }
+    }
+    xhttp.send();
+}
