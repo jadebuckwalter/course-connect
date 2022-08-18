@@ -16,7 +16,7 @@ function login(googleUser) {
 
     // Check for CPSD emails
     if (profile.getEmail().substring(profile.getEmail().length - 8) === "@cpsd.us") {
-        // User is on the form login
+        // User is on the admin login
         if (document.getElementById("auth-label") !== null) {
             // Send a request to verify the authentication code
             const xhttp = new XMLHttpRequest();

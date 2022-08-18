@@ -14,6 +14,7 @@ function initialize() {
 function submitForm() {
     // User's inputs in the form
     const info = {
+        code: document.getElementById("auth").value,
         id: document.getElementById("student-id").value,
         first: format(document.getElementById("first-name").value),
         last: format(document.getElementById("last-name").value),
@@ -23,7 +24,7 @@ function submitForm() {
     };
 
     // Check for user input
-    if (info.id === "" || info.first === "" || info.last === "" || info.email === "" || info.courses.length === 0) {
+    if (info.code === "" || info.id === "" || info.first === "" || info.last === "" || info.email === "" || info.courses.length === 0) {
         document.getElementById("submit-error").style.display = "block";
         document.getElementById("submit-error").innerHTML = "Please fill out all of the fields.";
     // Ensure the email entered is the student's CPSD email address
@@ -35,14 +36,28 @@ function submitForm() {
         document.getElementById("submit-error").style.display = "block";
         document.getElementById("submit-error").innerHTML = "You must check all of the boxes.";
     } else {
-        // HTTP request to send the search terms to the backend and store the results
-        const xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "/submit");
-        xhttp.setRequestHeader("Content-Type", "application/json");
-        xhttp.send(JSON.stringify(info));
+        // Check the authentication code
+        const check = new XMLHttpRequest();
+        check.onreadystatechange = () => {
+            if (check.readyState === 4 && check.status === 200) {
+                // If the authentication code is in the database, log the user in
+                if (check.responseText.length > 2) {
+                    // HTTP request to send the search terms to the backend and store the results
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.open("POST", "/submit");
+                    xhttp.setRequestHeader("Content-Type", "application/json");
+                    xhttp.send(JSON.stringify(info));
 
-        // Go back to the main page
-        window.location.replace("/");
+                    // Go back to the main page
+                    window.location.replace("/");
+                } else {
+                    document.getElementById("submit-error").innerHTML = "Please enter a valid authentication code.";
+                }
+            }
+        }
+        check.open("POST", "/auth");
+        check.setRequestHeader("Content-Type", "application/json");
+        check.send(JSON.stringify({code: info.code}));
     }
 }
 

@@ -29,7 +29,7 @@
             <div id="resources" style="display: none">
                 <h2 id="resources-header">Resources</h2>
                 <div id="resources-container">
-                    <div id="links-container">
+                    <div class="links-container">
                         <div id="link1" class="resource-links" value="New Tab" onclick="window.open('https://secure1.cpsd.us/course_catalog/')">CRLS Course Catalog</div>
                         <div id="link2" class="resource-links" value="New Tab" onclick="window.open('https://forms.gle/p7t2yP6AsWCRrYu39')">Issues/Feature Requests</div>
                     </div>
@@ -144,6 +144,14 @@
                                     the best fit based on your extracurriculars and other responsibilities.
                                 </li>
                             </ul>
+                        </div>
+                        <div class="links-container">
+                            <form class="form-buttons" id="link3parent" action="/form" method="POST">
+                                <div class="resource-links" id="link3" value="New Tab" onclick="document.getElementById('link3').parentNode.submit();">For New Mentors</div><br>
+                            </form>
+                            <form class="form-buttons" id="link4parent" action="/add" method="POST">
+                                <div class="resource-links" id="link4" value="New Tab" onclick="document.getElementById('link4').parentNode.submit();">For Returning Mentors</div><br>
+                            </form>
                         </div>
                     </div>
                 </div>

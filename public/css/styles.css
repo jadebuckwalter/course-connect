@@ -241,8 +241,10 @@ p, label, input, table, td, ul {
     margin: auto;
 }
 
-#links-container {
+.links-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .resource-links {
@@ -256,14 +258,44 @@ p, label, input, table, td, ul {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 8px;
-    display: flex;
+    margin-top: 8px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
+.form-buttons {
+    font-family: "Lato-Regular";
+    font-size: 20px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
 .resource-links:hover {
     background-color: var(--teal-light-2);
+}
+
+#link3, #link4 {
+    background-color: var(--orange);
+    cursor: pointer;
+}
+
+#link3:hover, #link4:hover {
+    background-color: var(--orange1);
+}
+
+#link3 {
+    margin-right: 25%;
+}
+
+#link4 {
+    margin-left: 25%;
 }
 
 #link1 {
