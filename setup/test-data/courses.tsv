@@ -32,7 +32,7 @@ D090	Dance 1
 D095	Drama 1: Introduction to Acting
 D863	Film Studies
 D864	HN Acting and Directing
-D866    Play Creation and Performance
+D866	Play Creation and Performance
 D867	Latin Dance
 D868	HN Dance Technique & Choreography
 D869	HN Playwriting
@@ -47,13 +47,13 @@ E405	HN Journalism 1
 E406	HN Journalism 2
 E414	HN College Writing
 E416	Far Out Fictions
-E425    Creative Writing, Literature, and the Arts
+E425	Creative Writing, Literature, and the Arts
 E427	HN Literature in Religion
 E429	Music as Literature
 E431	HN African American Literature
-E435    Greek Mythology
+E435	Greek Mythology
 E436	Psychology and Literature
-E439    Examining Graphic Novels
+E439	Examining Graphic Novels
 E446	Statistics & Society: Humanities (HN Option)
 E450	Detective Fiction
 E465	HN Philosophy
@@ -73,12 +73,12 @@ GCRC	Peer Leadership
 GTUT	Peer Tutoring
 H202	HN World History
 H290	Critical Issues in United States History (HN Opt)
-H402    Asian American Experiences
+H402	Asian American Experiences
 H403	HN Psychology
 H406	HN Sociology
 H407	Criminal Justice
 H409	African-American History
-H410    HN Constitutional Law
+H410	HN Constitutional Law
 H415	Leadership & Community Action - STARs
 H419	Black American Experience (HN Opt)
 H420	HN Schools: Liberation or Oppression?
@@ -91,15 +91,15 @@ H450	HN History of Sports in American Society
 H455	HN History through the Headlines
 H460	Do it for the Culture: Healing, Justice, and Liberation
 H470	HN Modern Latin American History
-H475    HN Urban History and Policy
+H475	HN Urban History and Policy
 H490	HN United States Civics and Current Events
 H491	HN History of Fashion
 H495	HN Women and Gender Studies
-H501    AP African American Studies
+H501	AP African American Studies
 H502	UM American Identities
 H504	AP World History: Modern
 H506	AP Comparative Government and Politics
-H507    AP Psychology
+H507	AP Psychology
 H510	AP United States Government & Politics
 H531	AP United States History
 I025	HN Jazz Workshop
@@ -182,13 +182,13 @@ M510	AP Statistics
 PE0025A	PE Swim Development & Aquatic Fitness - Before School
 PE0028A	PE Lifeguard Certification - Before School
 PE0029	PE Athletics
-PE1H    HE Health 1
-PE1P    PE Physical Education 1
-PE2H-23 HE Health 2-23
-PE2PA-23    PE Physical Education 2A-23
-PE2PB-23    PE Physical Education 2B-23
-PE3H-23 Train the Trainer
-PH23-AM HE Before School Wellness 2
+PE1H	HE Health 1
+PE1P	PE Physical Education 1
+PE2H-23	HE Health 2-23
+PE2PA-23	PE Physical Education 2A-23
+PE2PB-23	PE Physical Education 2B-23
+PE3H-23	Train the Trainer
+PH23-AM	HE Before School Wellness 2
 S102	HN Physics
 S201	Chemistry
 S202	HN Chemistry
@@ -207,7 +207,7 @@ S415	Science & Engineering Research
 S416	Exercise Physiology
 S419	Zoology (HN Opt)
 S421	Ethics and Sciences
-S422    Food Chemistry
+S422	Food Chemistry
 S423	Becoming da Vinci - The Integration of Arts and Science
 S425	Brain & Behavior
 S435	Food, Farming, & Our Planet
@@ -281,7 +281,7 @@ XE201	SE ESL 3 (Intermediate)
 XE202	SE ESL 4 (Advanced)
 XE301	SE Literature and Writing
 XH101	SE World Today
-XH220   SE World History 2
+XH220	SE World History 2
 XH301	SE United States History 1
 XH302	SE United States History 2
 XH401	SE Civics
@@ -296,6 +296,6 @@ XS301	SE Biology
 Y000	HN Senior Internship
 Y000B	HN Goodwork Seminar
 Y002A	HN Teaching Assistantship
-Y002B   HN Teaching Assistantship for Level Up
+Y002B	HN Teaching Assistantship for Level Up
 Y003	HN Senior Thesis
 Y004	HN Independent Graduation Project
