@@ -31,22 +31,12 @@ app.post("/version", (req, res) => {
     res.end(package.version);
 });
 
-// Direct to the login page for the mentor form
-app.get("/form", (req, res) => {
-    res.sendFile(__dirname + "/public/html/form-login.html");
-});
-
-// Redirect to the mentor form once the user has logged in
+// Redirect to the mentor form
 app.post("/form", (req, res) => {
     res.sendFile(__dirname + "/public/html/form.html");
 });
 
-// Direct to the add courses page
-app.get("/add", (req, res) => {
-    res.sendFile(__dirname + "/public/html/add-courses-login.html");
-});
-
-// Redirect to the add courses page once the user has logged in
+// Redirect to the add courses page
 app.post("/add", (req, res) => {
     res.sendFile(__dirname + "/public/html/add-courses.html");
 });
