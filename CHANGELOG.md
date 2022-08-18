@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0](https://github.com/jadebuckwalter/course-connect/releases/tag/v1.1.0) - tagged 2022-08-18
+- Use course IDs (instead of course names) in the `connect` table to accommodate for year-to-year changes in course names ([#49](https://github.com/jadebuckwalter/course-connect/issues/49))
+- Add an administrator portal that gives admin view access to the database ([#47](https://github.com/jadebuckwalter/course-connect/issues/47), [#50](https://github.com/jadebuckwalter/course-connect/pull/50))
+- Provide access to forms from the resources page and remove form login pages ([#51](https://github.com/jadebuckwalter/course-connect/issues/51))
+- Provide an alternate way of filling the database with test data ([#54](https://github.com/jadebuckwalter/course-connect/issues/54))
+- Automate display of the version number from `package.json` ([#52](https://github.com/jadebuckwalter/course-connect/issues/52))
+- Update `courses.tsv` to reflect the 2022-23 CRLS Course Catalog
+- Move common functions into `home.js`
+- Create `MAINTENANCE.md` to provide instructions on releasing a new version
+
 ## [1.0.4](https://github.com/jadebuckwalter/course-connect/releases/tag/v1.0.4) - tagged 2022-03-25
 - Detect previous versions of the database and automatically migrate to the current version ([#45](https://github.com/jadebuckwalter/course-connect/issues/45), [#48](https://github.com/jadebuckwalter/course-connect/pull/48))
 - Add a page for mentors to enter new courses that they have taken ([#10](https://github.com/jadebuckwalter/course-connect/issues/10))
