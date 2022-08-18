@@ -105,7 +105,7 @@ app.post("/search-subject", (req, res) => {
 // Receive a list of classes, query the database for mentors who have taken those classes,
 // and pass back a JSON with the mentor info
 app.post("/results", (req, res) => {
-    const query = "SELECT first, last, email, pmsg FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course = (?))";
+    const query = "SELECT first, last, email, pmsg FROM mentors WHERE id IN (SELECT studentID FROM connect WHERE course IN (SELECT id FROM courses WHERE name = (?)))";
     connection.query(query, req.body.course, (err, rows) => {
         if (err) throw err;
         const mentors = [];
@@ -138,7 +138,7 @@ app.post("/submit", (req, res) => {
         if (err) throw err;
     });
     // Insert all of the mentor's courses into the "connect" table
-    const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
+    const query = "INSERT INTO connect (studentID, course) VALUES (?, (SELECT id FROM courses WHERE name = (?)))";
     req.body.courses.forEach(course => {
         connection.query(query, [req.body.id, course], (err) => {
             if (err) throw err;
@@ -157,8 +157,8 @@ app.post("/identify", (req, res) => {
 
 // Add mentors' new courses into the database
 app.post("/add-courses", (req, res) => {
-    const check = "SELECT * FROM connect WHERE studentID = ? AND course = ?";
-    const query = "INSERT INTO connect (studentID, course) VALUES (?, ?)";
+    const check = "SELECT * FROM connect WHERE studentID = ? AND course = (SELECT id FROM courses WHERE name = (?))";
+    const query = "INSERT INTO connect (studentID, course) VALUES (?, (SELECT id FROM courses WHERE name = (?)))";
     req.body.courses.forEach(course => {
         connection.query(check, [req.body.id, course], (err, rows) => {
             if (err) throw err;
